@@ -272,52 +272,62 @@ public class PurchaseinquiryExample {
             return (Criteria) this;
         }
 
-        public Criteria andCurridEqualTo(Integer value) {
+        public Criteria andCurridEqualTo(String value) {
             addCriterion("CurrID =", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotEqualTo(Integer value) {
+        public Criteria andCurridNotEqualTo(String value) {
             addCriterion("CurrID <>", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridGreaterThan(Integer value) {
+        public Criteria andCurridGreaterThan(String value) {
             addCriterion("CurrID >", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCurridGreaterThanOrEqualTo(String value) {
             addCriterion("CurrID >=", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridLessThan(Integer value) {
+        public Criteria andCurridLessThan(String value) {
             addCriterion("CurrID <", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridLessThanOrEqualTo(Integer value) {
+        public Criteria andCurridLessThanOrEqualTo(String value) {
             addCriterion("CurrID <=", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridIn(List<Integer> values) {
+        public Criteria andCurridLike(String value) {
+            addCriterion("CurrID like", value, "currid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurridNotLike(String value) {
+            addCriterion("CurrID not like", value, "currid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurridIn(List<String> values) {
             addCriterion("CurrID in", values, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotIn(List<Integer> values) {
+        public Criteria andCurridNotIn(List<String> values) {
             addCriterion("CurrID not in", values, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridBetween(Integer value1, Integer value2) {
+        public Criteria andCurridBetween(String value1, String value2) {
             addCriterion("CurrID between", value1, value2, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotBetween(Integer value1, Integer value2) {
+        public Criteria andCurridNotBetween(String value1, String value2) {
             addCriterion("CurrID not between", value1, value2, "currid");
             return (Criteria) this;
         }

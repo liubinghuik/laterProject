@@ -19,7 +19,7 @@ public class Materialmaster {
 
     private Double suggestprice;
 
-    private Integer currid;
+    private String currid;
 
     private String prodform;
 
@@ -31,7 +31,7 @@ public class Materialmaster {
 
     private Integer advancedays;
 
-    private Integer majorsupplier;
+    private String majorsupplier;
 
     private Double salespricea;
 
@@ -59,7 +59,7 @@ public class Materialmaster {
 
     private Double bstdcost;
 
-    private Double cavgcost;
+    private Double btotalcost;
 
     private Double cstdcost;
 
@@ -71,7 +71,7 @@ public class Materialmaster {
 
     private String proddesc;
 
-    private String coulumn1;
+    private Integer ballamt;
 
     private String coulumn2;
 
@@ -141,11 +141,11 @@ public class Materialmaster {
         this.suggestprice = suggestprice;
     }
 
-    public Integer getCurrid() {
+    public String getCurrid() {
         return currid;
     }
 
-    public void setCurrid(Integer currid) {
+    public void setCurrid(String currid) {
         this.currid = currid;
     }
 
@@ -189,11 +189,11 @@ public class Materialmaster {
         this.advancedays = advancedays;
     }
 
-    public Integer getMajorsupplier() {
+    public String getMajorsupplier() {
         return majorsupplier;
     }
 
-    public void setMajorsupplier(Integer majorsupplier) {
+    public void setMajorsupplier(String majorsupplier) {
         this.majorsupplier = majorsupplier;
     }
 
@@ -301,12 +301,12 @@ public class Materialmaster {
         this.bstdcost = bstdcost;
     }
 
-    public Double getCavgcost() {
-        return cavgcost;
+    public Double getBtotalcost() {
+        return btotalcost;
     }
 
-    public void setCavgcost(Double cavgcost) {
-        this.cavgcost = cavgcost;
+    public void setBtotalcost(Double btotalcost) {
+        this.btotalcost = btotalcost;
     }
 
     public Double getCstdcost() {
@@ -349,12 +349,12 @@ public class Materialmaster {
         this.proddesc = proddesc;
     }
 
-    public String getCoulumn1() {
-        return coulumn1;
+    public Integer getBallamt() {
+        return ballamt;
     }
 
-    public void setCoulumn1(String coulumn1) {
-        this.coulumn1 = coulumn1;
+    public void setBallamt(Integer ballamt) {
+        this.ballamt = ballamt;
     }
 
     public String getCoulumn2() {

@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="com.accp.domain.Purchaseorder" >
     <id column="BillNo" property="billno" jdbcType="VARCHAR" />
     <result column="BillDate" property="billdate" jdbcType="DATE" />
-    <result column="CurrID" property="currid" jdbcType="INTEGER" />
+    <result column="CurrID" property="currid" jdbcType="VARCHAR" />
     <result column="ExchRate" property="exchrate" jdbcType="DOUBLE" />
     <result column="CustomerID" property="customerid" jdbcType="VARCHAR" />
     <result column="AddressID" property="addressid" jdbcType="VARCHAR" />
-    <result column="BillStyleID" property="billstyleid" jdbcType="INTEGER" />
+    <result column="BillStyleID" property="billstyleid" jdbcType="VARCHAR" />
     <result column="PriceOfTax" property="priceoftax" jdbcType="INTEGER" />
     <result column="BillStatus" property="billstatus" jdbcType="INTEGER" />
     <result column="OutAddress" property="outaddress" jdbcType="VARCHAR" />
@@ -123,9 +123,9 @@
       Maker, Permitter, PojectName, 
       Audit, column1, Column2, 
       Column3)
-    values (#{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=DATE}, #{currid,jdbcType=INTEGER}, 
+    values (#{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=DATE}, #{currid,jdbcType=VARCHAR}, 
       #{exchrate,jdbcType=DOUBLE}, #{customerid,jdbcType=VARCHAR}, #{addressid,jdbcType=VARCHAR}, 
-      #{billstyleid,jdbcType=INTEGER}, #{priceoftax,jdbcType=INTEGER}, #{billstatus,jdbcType=INTEGER}, 
+      #{billstyleid,jdbcType=VARCHAR}, #{priceoftax,jdbcType=INTEGER}, #{billstatus,jdbcType=INTEGER}, 
       #{outaddress,jdbcType=VARCHAR}, #{salesname,jdbcType=VARCHAR}, #{departid,jdbcType=INTEGER}, 
       #{maker,jdbcType=VARCHAR}, #{permitter,jdbcType=VARCHAR}, #{pojectname,jdbcType=VARCHAR}, 
       #{audit,jdbcType=INTEGER}, #{column1,jdbcType=VARCHAR}, #{column2,jdbcType=VARCHAR}, 
@@ -200,7 +200,7 @@
         #{billdate,jdbcType=DATE},
       </if>
       <if test="currid != null" >
-        #{currid,jdbcType=INTEGER},
+        #{currid,jdbcType=VARCHAR},
       </if>
       <if test="exchrate != null" >
         #{exchrate,jdbcType=DOUBLE},
@@ -212,7 +212,7 @@
         #{addressid,jdbcType=VARCHAR},
       </if>
       <if test="billstyleid != null" >
-        #{billstyleid,jdbcType=INTEGER},
+        #{billstyleid,jdbcType=VARCHAR},
       </if>
       <if test="priceoftax != null" >
         #{priceoftax,jdbcType=INTEGER},
@@ -268,7 +268,7 @@
         BillDate = #{record.billdate,jdbcType=DATE},
       </if>
       <if test="record.currid != null" >
-        CurrID = #{record.currid,jdbcType=INTEGER},
+        CurrID = #{record.currid,jdbcType=VARCHAR},
       </if>
       <if test="record.exchrate != null" >
         ExchRate = #{record.exchrate,jdbcType=DOUBLE},
@@ -280,7 +280,7 @@
         AddressID = #{record.addressid,jdbcType=VARCHAR},
       </if>
       <if test="record.billstyleid != null" >
-        BillStyleID = #{record.billstyleid,jdbcType=INTEGER},
+        BillStyleID = #{record.billstyleid,jdbcType=VARCHAR},
       </if>
       <if test="record.priceoftax != null" >
         PriceOfTax = #{record.priceoftax,jdbcType=INTEGER},
@@ -327,11 +327,11 @@
     update purchaseorder
     set BillNo = #{record.billno,jdbcType=VARCHAR},
       BillDate = #{record.billdate,jdbcType=DATE},
-      CurrID = #{record.currid,jdbcType=INTEGER},
+      CurrID = #{record.currid,jdbcType=VARCHAR},
       ExchRate = #{record.exchrate,jdbcType=DOUBLE},
       CustomerID = #{record.customerid,jdbcType=VARCHAR},
       AddressID = #{record.addressid,jdbcType=VARCHAR},
-      BillStyleID = #{record.billstyleid,jdbcType=INTEGER},
+      BillStyleID = #{record.billstyleid,jdbcType=VARCHAR},
       PriceOfTax = #{record.priceoftax,jdbcType=INTEGER},
       BillStatus = #{record.billstatus,jdbcType=INTEGER},
       OutAddress = #{record.outaddress,jdbcType=VARCHAR},
@@ -355,7 +355,7 @@
         BillDate = #{billdate,jdbcType=DATE},
       </if>
       <if test="currid != null" >
-        CurrID = #{currid,jdbcType=INTEGER},
+        CurrID = #{currid,jdbcType=VARCHAR},
       </if>
       <if test="exchrate != null" >
         ExchRate = #{exchrate,jdbcType=DOUBLE},
@@ -367,7 +367,7 @@
         AddressID = #{addressid,jdbcType=VARCHAR},
       </if>
       <if test="billstyleid != null" >
-        BillStyleID = #{billstyleid,jdbcType=INTEGER},
+        BillStyleID = #{billstyleid,jdbcType=VARCHAR},
       </if>
       <if test="priceoftax != null" >
         PriceOfTax = #{priceoftax,jdbcType=INTEGER},
@@ -411,11 +411,11 @@
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Purchaseorder" >
     update purchaseorder
     set BillDate = #{billdate,jdbcType=DATE},
-      CurrID = #{currid,jdbcType=INTEGER},
+      CurrID = #{currid,jdbcType=VARCHAR},
       ExchRate = #{exchrate,jdbcType=DOUBLE},
       CustomerID = #{customerid,jdbcType=VARCHAR},
       AddressID = #{addressid,jdbcType=VARCHAR},
-      BillStyleID = #{billstyleid,jdbcType=INTEGER},
+      BillStyleID = #{billstyleid,jdbcType=VARCHAR},
       PriceOfTax = #{priceoftax,jdbcType=INTEGER},
       BillStatus = #{billstatus,jdbcType=INTEGER},
       OutAddress = #{outaddress,jdbcType=VARCHAR},

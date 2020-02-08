@@ -482,52 +482,62 @@ public class PurchaseorderdetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andSunitidEqualTo(Integer value) {
+        public Criteria andSunitidEqualTo(String value) {
             addCriterion("SUnitID =", value, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidNotEqualTo(Integer value) {
+        public Criteria andSunitidNotEqualTo(String value) {
             addCriterion("SUnitID <>", value, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidGreaterThan(Integer value) {
+        public Criteria andSunitidGreaterThan(String value) {
             addCriterion("SUnitID >", value, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSunitidGreaterThanOrEqualTo(String value) {
             addCriterion("SUnitID >=", value, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidLessThan(Integer value) {
+        public Criteria andSunitidLessThan(String value) {
             addCriterion("SUnitID <", value, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidLessThanOrEqualTo(Integer value) {
+        public Criteria andSunitidLessThanOrEqualTo(String value) {
             addCriterion("SUnitID <=", value, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidIn(List<Integer> values) {
+        public Criteria andSunitidLike(String value) {
+            addCriterion("SUnitID like", value, "sunitid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSunitidNotLike(String value) {
+            addCriterion("SUnitID not like", value, "sunitid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSunitidIn(List<String> values) {
             addCriterion("SUnitID in", values, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidNotIn(List<Integer> values) {
+        public Criteria andSunitidNotIn(List<String> values) {
             addCriterion("SUnitID not in", values, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidBetween(Integer value1, Integer value2) {
+        public Criteria andSunitidBetween(String value1, String value2) {
             addCriterion("SUnitID between", value1, value2, "sunitid");
             return (Criteria) this;
         }
 
-        public Criteria andSunitidNotBetween(Integer value1, Integer value2) {
+        public Criteria andSunitidNotBetween(String value1, String value2) {
             addCriterion("SUnitID not between", value1, value2, "sunitid");
             return (Criteria) this;
         }

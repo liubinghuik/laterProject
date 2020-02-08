@@ -682,52 +682,62 @@ public class MaterialmasterExample {
             return (Criteria) this;
         }
 
-        public Criteria andCurridEqualTo(Integer value) {
+        public Criteria andCurridEqualTo(String value) {
             addCriterion("CurrID =", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotEqualTo(Integer value) {
+        public Criteria andCurridNotEqualTo(String value) {
             addCriterion("CurrID <>", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridGreaterThan(Integer value) {
+        public Criteria andCurridGreaterThan(String value) {
             addCriterion("CurrID >", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCurridGreaterThanOrEqualTo(String value) {
             addCriterion("CurrID >=", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridLessThan(Integer value) {
+        public Criteria andCurridLessThan(String value) {
             addCriterion("CurrID <", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridLessThanOrEqualTo(Integer value) {
+        public Criteria andCurridLessThanOrEqualTo(String value) {
             addCriterion("CurrID <=", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridIn(List<Integer> values) {
+        public Criteria andCurridLike(String value) {
+            addCriterion("CurrID like", value, "currid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurridNotLike(String value) {
+            addCriterion("CurrID not like", value, "currid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurridIn(List<String> values) {
             addCriterion("CurrID in", values, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotIn(List<Integer> values) {
+        public Criteria andCurridNotIn(List<String> values) {
             addCriterion("CurrID not in", values, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridBetween(Integer value1, Integer value2) {
+        public Criteria andCurridBetween(String value1, String value2) {
             addCriterion("CurrID between", value1, value2, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotBetween(Integer value1, Integer value2) {
+        public Criteria andCurridNotBetween(String value1, String value2) {
             addCriterion("CurrID not between", value1, value2, "currid");
             return (Criteria) this;
         }
@@ -1052,52 +1062,62 @@ public class MaterialmasterExample {
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierEqualTo(Integer value) {
+        public Criteria andMajorsupplierEqualTo(String value) {
             addCriterion("MajorSupplier =", value, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierNotEqualTo(Integer value) {
+        public Criteria andMajorsupplierNotEqualTo(String value) {
             addCriterion("MajorSupplier <>", value, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierGreaterThan(Integer value) {
+        public Criteria andMajorsupplierGreaterThan(String value) {
             addCriterion("MajorSupplier >", value, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierGreaterThanOrEqualTo(Integer value) {
+        public Criteria andMajorsupplierGreaterThanOrEqualTo(String value) {
             addCriterion("MajorSupplier >=", value, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierLessThan(Integer value) {
+        public Criteria andMajorsupplierLessThan(String value) {
             addCriterion("MajorSupplier <", value, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierLessThanOrEqualTo(Integer value) {
+        public Criteria andMajorsupplierLessThanOrEqualTo(String value) {
             addCriterion("MajorSupplier <=", value, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierIn(List<Integer> values) {
+        public Criteria andMajorsupplierLike(String value) {
+            addCriterion("MajorSupplier like", value, "majorsupplier");
+            return (Criteria) this;
+        }
+
+        public Criteria andMajorsupplierNotLike(String value) {
+            addCriterion("MajorSupplier not like", value, "majorsupplier");
+            return (Criteria) this;
+        }
+
+        public Criteria andMajorsupplierIn(List<String> values) {
             addCriterion("MajorSupplier in", values, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierNotIn(List<Integer> values) {
+        public Criteria andMajorsupplierNotIn(List<String> values) {
             addCriterion("MajorSupplier not in", values, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierBetween(Integer value1, Integer value2) {
+        public Criteria andMajorsupplierBetween(String value1, String value2) {
             addCriterion("MajorSupplier between", value1, value2, "majorsupplier");
             return (Criteria) this;
         }
 
-        public Criteria andMajorsupplierNotBetween(Integer value1, Integer value2) {
+        public Criteria andMajorsupplierNotBetween(String value1, String value2) {
             addCriterion("MajorSupplier not between", value1, value2, "majorsupplier");
             return (Criteria) this;
         }
@@ -1882,63 +1902,63 @@ public class MaterialmasterExample {
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostIsNull() {
-            addCriterion("CAvgCost is null");
+        public Criteria andBtotalcostIsNull() {
+            addCriterion("BTotalCost is null");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostIsNotNull() {
-            addCriterion("CAvgCost is not null");
+        public Criteria andBtotalcostIsNotNull() {
+            addCriterion("BTotalCost is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostEqualTo(Double value) {
-            addCriterion("CAvgCost =", value, "cavgcost");
+        public Criteria andBtotalcostEqualTo(Double value) {
+            addCriterion("BTotalCost =", value, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostNotEqualTo(Double value) {
-            addCriterion("CAvgCost <>", value, "cavgcost");
+        public Criteria andBtotalcostNotEqualTo(Double value) {
+            addCriterion("BTotalCost <>", value, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostGreaterThan(Double value) {
-            addCriterion("CAvgCost >", value, "cavgcost");
+        public Criteria andBtotalcostGreaterThan(Double value) {
+            addCriterion("BTotalCost >", value, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostGreaterThanOrEqualTo(Double value) {
-            addCriterion("CAvgCost >=", value, "cavgcost");
+        public Criteria andBtotalcostGreaterThanOrEqualTo(Double value) {
+            addCriterion("BTotalCost >=", value, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostLessThan(Double value) {
-            addCriterion("CAvgCost <", value, "cavgcost");
+        public Criteria andBtotalcostLessThan(Double value) {
+            addCriterion("BTotalCost <", value, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostLessThanOrEqualTo(Double value) {
-            addCriterion("CAvgCost <=", value, "cavgcost");
+        public Criteria andBtotalcostLessThanOrEqualTo(Double value) {
+            addCriterion("BTotalCost <=", value, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostIn(List<Double> values) {
-            addCriterion("CAvgCost in", values, "cavgcost");
+        public Criteria andBtotalcostIn(List<Double> values) {
+            addCriterion("BTotalCost in", values, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostNotIn(List<Double> values) {
-            addCriterion("CAvgCost not in", values, "cavgcost");
+        public Criteria andBtotalcostNotIn(List<Double> values) {
+            addCriterion("BTotalCost not in", values, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostBetween(Double value1, Double value2) {
-            addCriterion("CAvgCost between", value1, value2, "cavgcost");
+        public Criteria andBtotalcostBetween(Double value1, Double value2) {
+            addCriterion("BTotalCost between", value1, value2, "btotalcost");
             return (Criteria) this;
         }
 
-        public Criteria andCavgcostNotBetween(Double value1, Double value2) {
-            addCriterion("CAvgCost not between", value1, value2, "cavgcost");
+        public Criteria andBtotalcostNotBetween(Double value1, Double value2) {
+            addCriterion("BTotalCost not between", value1, value2, "btotalcost");
             return (Criteria) this;
         }
 
@@ -2252,73 +2272,63 @@ public class MaterialmasterExample {
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1IsNull() {
-            addCriterion("Coulumn1 is null");
+        public Criteria andBallamtIsNull() {
+            addCriterion("BAllAmt is null");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1IsNotNull() {
-            addCriterion("Coulumn1 is not null");
+        public Criteria andBallamtIsNotNull() {
+            addCriterion("BAllAmt is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1EqualTo(String value) {
-            addCriterion("Coulumn1 =", value, "coulumn1");
+        public Criteria andBallamtEqualTo(Integer value) {
+            addCriterion("BAllAmt =", value, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1NotEqualTo(String value) {
-            addCriterion("Coulumn1 <>", value, "coulumn1");
+        public Criteria andBallamtNotEqualTo(Integer value) {
+            addCriterion("BAllAmt <>", value, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1GreaterThan(String value) {
-            addCriterion("Coulumn1 >", value, "coulumn1");
+        public Criteria andBallamtGreaterThan(Integer value) {
+            addCriterion("BAllAmt >", value, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1GreaterThanOrEqualTo(String value) {
-            addCriterion("Coulumn1 >=", value, "coulumn1");
+        public Criteria andBallamtGreaterThanOrEqualTo(Integer value) {
+            addCriterion("BAllAmt >=", value, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1LessThan(String value) {
-            addCriterion("Coulumn1 <", value, "coulumn1");
+        public Criteria andBallamtLessThan(Integer value) {
+            addCriterion("BAllAmt <", value, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1LessThanOrEqualTo(String value) {
-            addCriterion("Coulumn1 <=", value, "coulumn1");
+        public Criteria andBallamtLessThanOrEqualTo(Integer value) {
+            addCriterion("BAllAmt <=", value, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1Like(String value) {
-            addCriterion("Coulumn1 like", value, "coulumn1");
+        public Criteria andBallamtIn(List<Integer> values) {
+            addCriterion("BAllAmt in", values, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1NotLike(String value) {
-            addCriterion("Coulumn1 not like", value, "coulumn1");
+        public Criteria andBallamtNotIn(List<Integer> values) {
+            addCriterion("BAllAmt not in", values, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1In(List<String> values) {
-            addCriterion("Coulumn1 in", values, "coulumn1");
+        public Criteria andBallamtBetween(Integer value1, Integer value2) {
+            addCriterion("BAllAmt between", value1, value2, "ballamt");
             return (Criteria) this;
         }
 
-        public Criteria andCoulumn1NotIn(List<String> values) {
-            addCriterion("Coulumn1 not in", values, "coulumn1");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoulumn1Between(String value1, String value2) {
-            addCriterion("Coulumn1 between", value1, value2, "coulumn1");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoulumn1NotBetween(String value1, String value2) {
-            addCriterion("Coulumn1 not between", value1, value2, "coulumn1");
+        public Criteria andBallamtNotBetween(Integer value1, Integer value2) {
+            addCriterion("BAllAmt not between", value1, value2, "ballamt");
             return (Criteria) this;
         }
 

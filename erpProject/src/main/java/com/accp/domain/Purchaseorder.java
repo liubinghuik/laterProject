@@ -7,7 +7,7 @@ public class Purchaseorder {
 
     private Date billdate;
 
-    private Integer currid;
+    private String currid;
 
     private Double exchrate;
 
@@ -15,7 +15,7 @@ public class Purchaseorder {
 
     private String addressid;
 
-    private Integer billstyleid;
+    private String billstyleid;
 
     private Integer priceoftax;
 
@@ -57,11 +57,11 @@ public class Purchaseorder {
         this.billdate = billdate;
     }
 
-    public Integer getCurrid() {
+    public String getCurrid() {
         return currid;
     }
 
-    public void setCurrid(Integer currid) {
+    public void setCurrid(String currid) {
         this.currid = currid;
     }
 
@@ -89,11 +89,11 @@ public class Purchaseorder {
         this.addressid = addressid;
     }
 
-    public Integer getBillstyleid() {
+    public String getBillstyleid() {
         return billstyleid;
     }
 
-    public void setBillstyleid(Integer billstyleid) {
+    public void setBillstyleid(String billstyleid) {
         this.billstyleid = billstyleid;
     }
 

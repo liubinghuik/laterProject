@@ -272,52 +272,62 @@ public class PurchaseorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andCurridEqualTo(Integer value) {
+        public Criteria andCurridEqualTo(String value) {
             addCriterion("CurrID =", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotEqualTo(Integer value) {
+        public Criteria andCurridNotEqualTo(String value) {
             addCriterion("CurrID <>", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridGreaterThan(Integer value) {
+        public Criteria andCurridGreaterThan(String value) {
             addCriterion("CurrID >", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCurridGreaterThanOrEqualTo(String value) {
             addCriterion("CurrID >=", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridLessThan(Integer value) {
+        public Criteria andCurridLessThan(String value) {
             addCriterion("CurrID <", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridLessThanOrEqualTo(Integer value) {
+        public Criteria andCurridLessThanOrEqualTo(String value) {
             addCriterion("CurrID <=", value, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridIn(List<Integer> values) {
+        public Criteria andCurridLike(String value) {
+            addCriterion("CurrID like", value, "currid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurridNotLike(String value) {
+            addCriterion("CurrID not like", value, "currid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurridIn(List<String> values) {
             addCriterion("CurrID in", values, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotIn(List<Integer> values) {
+        public Criteria andCurridNotIn(List<String> values) {
             addCriterion("CurrID not in", values, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridBetween(Integer value1, Integer value2) {
+        public Criteria andCurridBetween(String value1, String value2) {
             addCriterion("CurrID between", value1, value2, "currid");
             return (Criteria) this;
         }
 
-        public Criteria andCurridNotBetween(Integer value1, Integer value2) {
+        public Criteria andCurridNotBetween(String value1, String value2) {
             addCriterion("CurrID not between", value1, value2, "currid");
             return (Criteria) this;
         }
@@ -532,52 +542,62 @@ public class PurchaseorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidEqualTo(Integer value) {
+        public Criteria andBillstyleidEqualTo(String value) {
             addCriterion("BillStyleID =", value, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidNotEqualTo(Integer value) {
+        public Criteria andBillstyleidNotEqualTo(String value) {
             addCriterion("BillStyleID <>", value, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidGreaterThan(Integer value) {
+        public Criteria andBillstyleidGreaterThan(String value) {
             addCriterion("BillStyleID >", value, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andBillstyleidGreaterThanOrEqualTo(String value) {
             addCriterion("BillStyleID >=", value, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidLessThan(Integer value) {
+        public Criteria andBillstyleidLessThan(String value) {
             addCriterion("BillStyleID <", value, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidLessThanOrEqualTo(Integer value) {
+        public Criteria andBillstyleidLessThanOrEqualTo(String value) {
             addCriterion("BillStyleID <=", value, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidIn(List<Integer> values) {
+        public Criteria andBillstyleidLike(String value) {
+            addCriterion("BillStyleID like", value, "billstyleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillstyleidNotLike(String value) {
+            addCriterion("BillStyleID not like", value, "billstyleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillstyleidIn(List<String> values) {
             addCriterion("BillStyleID in", values, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidNotIn(List<Integer> values) {
+        public Criteria andBillstyleidNotIn(List<String> values) {
             addCriterion("BillStyleID not in", values, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidBetween(Integer value1, Integer value2) {
+        public Criteria andBillstyleidBetween(String value1, String value2) {
             addCriterion("BillStyleID between", value1, value2, "billstyleid");
             return (Criteria) this;
         }
 
-        public Criteria andBillstyleidNotBetween(Integer value1, Integer value2) {
+        public Criteria andBillstyleidNotBetween(String value1, String value2) {
             addCriterion("BillStyleID not between", value1, value2, "billstyleid");
             return (Criteria) this;
         }

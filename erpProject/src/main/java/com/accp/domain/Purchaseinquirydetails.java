@@ -11,7 +11,7 @@ public class Purchaseinquirydetails {
 
     private String prodsize;
 
-    private Integer sunitid;
+    private String sunitid;
 
     private Integer squantity;
 
@@ -79,11 +79,11 @@ public class Purchaseinquirydetails {
         this.prodsize = prodsize;
     }
 
-    public Integer getSunitid() {
+    public String getSunitid() {
         return sunitid;
     }
 
-    public void setSunitid(Integer sunitid) {
+    public void setSunitid(String sunitid) {
         this.sunitid = sunitid;
     }
 

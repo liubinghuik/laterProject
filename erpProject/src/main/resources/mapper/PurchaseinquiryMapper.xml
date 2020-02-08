@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.accp.domain.Purchaseinquiry" >
     <id column="BillNo" property="billno" jdbcType="VARCHAR" />
     <result column="BillDate" property="billdate" jdbcType="DATE" />
-    <result column="CurrID" property="currid" jdbcType="INTEGER" />
+    <result column="CurrID" property="currid" jdbcType="VARCHAR" />
     <result column="ExchRate" property="exchrate" jdbcType="DOUBLE" />
     <result column="CustomerID" property="customerid" jdbcType="VARCHAR" />
     <result column="AddressID" property="addressid" jdbcType="VARCHAR" />
@@ -122,7 +122,7 @@
       Maker, Permitter, Audit, 
       column1, Column2, Column3
       )
-    values (#{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=DATE}, #{currid,jdbcType=INTEGER}, 
+    values (#{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=DATE}, #{currid,jdbcType=VARCHAR}, 
       #{exchrate,jdbcType=DOUBLE}, #{customerid,jdbcType=VARCHAR}, #{addressid,jdbcType=VARCHAR}, 
       #{validdate,jdbcType=DATE}, #{priceoftax,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
       #{outaddress,jdbcType=VARCHAR}, #{salesname,jdbcType=VARCHAR}, #{departid,jdbcType=INTEGER}, 
@@ -196,7 +196,7 @@
         #{billdate,jdbcType=DATE},
       </if>
       <if test="currid != null" >
-        #{currid,jdbcType=INTEGER},
+        #{currid,jdbcType=VARCHAR},
       </if>
       <if test="exchrate != null" >
         #{exchrate,jdbcType=DOUBLE},
@@ -261,7 +261,7 @@
         BillDate = #{record.billdate,jdbcType=DATE},
       </if>
       <if test="record.currid != null" >
-        CurrID = #{record.currid,jdbcType=INTEGER},
+        CurrID = #{record.currid,jdbcType=VARCHAR},
       </if>
       <if test="record.exchrate != null" >
         ExchRate = #{record.exchrate,jdbcType=DOUBLE},
@@ -317,7 +317,7 @@
     update purchaseinquiry
     set BillNo = #{record.billno,jdbcType=VARCHAR},
       BillDate = #{record.billdate,jdbcType=DATE},
-      CurrID = #{record.currid,jdbcType=INTEGER},
+      CurrID = #{record.currid,jdbcType=VARCHAR},
       ExchRate = #{record.exchrate,jdbcType=DOUBLE},
       CustomerID = #{record.customerid,jdbcType=VARCHAR},
       AddressID = #{record.addressid,jdbcType=VARCHAR},
@@ -344,7 +344,7 @@
         BillDate = #{billdate,jdbcType=DATE},
       </if>
       <if test="currid != null" >
-        CurrID = #{currid,jdbcType=INTEGER},
+        CurrID = #{currid,jdbcType=VARCHAR},
       </if>
       <if test="exchrate != null" >
         ExchRate = #{exchrate,jdbcType=DOUBLE},
@@ -397,7 +397,7 @@
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Purchaseinquiry" >
     update purchaseinquiry
     set BillDate = #{billdate,jdbcType=DATE},
-      CurrID = #{currid,jdbcType=INTEGER},
+      CurrID = #{currid,jdbcType=VARCHAR},
       ExchRate = #{exchrate,jdbcType=DOUBLE},
       CustomerID = #{customerid,jdbcType=VARCHAR},
       AddressID = #{addressid,jdbcType=VARCHAR},

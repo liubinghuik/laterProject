@@ -13,11 +13,11 @@ public class Purchaserequisitionsdetails {
 
     private String prodsize;
 
-    private Integer sunitid;
+    private String sunitid;
 
     private Integer squantity;
 
-    private Integer currid;
+    private String currid;
 
     private Double sprice;
 
@@ -79,11 +79,11 @@ public class Purchaserequisitionsdetails {
         this.prodsize = prodsize;
     }
 
-    public Integer getSunitid() {
+    public String getSunitid() {
         return sunitid;
     }
 
-    public void setSunitid(Integer sunitid) {
+    public void setSunitid(String sunitid) {
         this.sunitid = sunitid;
     }
 
@@ -95,11 +95,11 @@ public class Purchaserequisitionsdetails {
         this.squantity = squantity;
     }
 
-    public Integer getCurrid() {
+    public String getCurrid() {
         return currid;
     }
 
-    public void setCurrid(Integer currid) {
+    public void setCurrid(String currid) {
         this.currid = currid;
     }
 

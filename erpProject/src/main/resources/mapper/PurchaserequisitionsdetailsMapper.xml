@@ -7,9 +7,9 @@
     <result column="BillNo" property="billno" jdbcType="VARCHAR" />
     <result column="ProdName" property="prodname" jdbcType="VARCHAR" />
     <result column="ProdSize" property="prodsize" jdbcType="VARCHAR" />
-    <result column="SUnitID" property="sunitid" jdbcType="INTEGER" />
+    <result column="SUnitID" property="sunitid" jdbcType="VARCHAR" />
     <result column="SQuantity" property="squantity" jdbcType="INTEGER" />
-    <result column="CurrID" property="currid" jdbcType="INTEGER" />
+    <result column="CurrID" property="currid" jdbcType="VARCHAR" />
     <result column="SPrice" property="sprice" jdbcType="DOUBLE" />
     <result column="Amount" property="amount" jdbcType="DOUBLE" />
     <result column="LastestCurrID" property="lastestcurrid" jdbcType="INTEGER" />
@@ -148,8 +148,8 @@
       QtyRemain, Remark, ItemRemark, 
       TranType, FromNo)
     values (#{serno,jdbcType=INTEGER}, #{prodid,jdbcType=DATE}, #{billno,jdbcType=VARCHAR}, 
-      #{prodname,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, #{sunitid,jdbcType=INTEGER}, 
-      #{squantity,jdbcType=INTEGER}, #{currid,jdbcType=INTEGER}, #{sprice,jdbcType=DOUBLE}, 
+      #{prodname,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, #{sunitid,jdbcType=VARCHAR}, 
+      #{squantity,jdbcType=INTEGER}, #{currid,jdbcType=VARCHAR}, #{sprice,jdbcType=DOUBLE}, 
       #{amount,jdbcType=DOUBLE}, #{lastestcurrid,jdbcType=INTEGER}, #{lastestprice,jdbcType=DOUBLE}, 
       #{lastestamount,jdbcType=DOUBLE}, #{preindate,jdbcType=DATE}, #{suggestpurdate,jdbcType=DATE}, 
       #{qtyremain,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{itemremark,jdbcType=VARCHAR}, 
@@ -236,13 +236,13 @@
         #{prodsize,jdbcType=VARCHAR},
       </if>
       <if test="sunitid != null" >
-        #{sunitid,jdbcType=INTEGER},
+        #{sunitid,jdbcType=VARCHAR},
       </if>
       <if test="squantity != null" >
         #{squantity,jdbcType=INTEGER},
       </if>
       <if test="currid != null" >
-        #{currid,jdbcType=INTEGER},
+        #{currid,jdbcType=VARCHAR},
       </if>
       <if test="sprice != null" >
         #{sprice,jdbcType=DOUBLE},
@@ -307,13 +307,13 @@
         ProdSize = #{record.prodsize,jdbcType=VARCHAR},
       </if>
       <if test="record.sunitid != null" >
-        SUnitID = #{record.sunitid,jdbcType=INTEGER},
+        SUnitID = #{record.sunitid,jdbcType=VARCHAR},
       </if>
       <if test="record.squantity != null" >
         SQuantity = #{record.squantity,jdbcType=INTEGER},
       </if>
       <if test="record.currid != null" >
-        CurrID = #{record.currid,jdbcType=INTEGER},
+        CurrID = #{record.currid,jdbcType=VARCHAR},
       </if>
       <if test="record.sprice != null" >
         SPrice = #{record.sprice,jdbcType=DOUBLE},
@@ -363,9 +363,9 @@
       BillNo = #{record.billno,jdbcType=VARCHAR},
       ProdName = #{record.prodname,jdbcType=VARCHAR},
       ProdSize = #{record.prodsize,jdbcType=VARCHAR},
-      SUnitID = #{record.sunitid,jdbcType=INTEGER},
+      SUnitID = #{record.sunitid,jdbcType=VARCHAR},
       SQuantity = #{record.squantity,jdbcType=INTEGER},
-      CurrID = #{record.currid,jdbcType=INTEGER},
+      CurrID = #{record.currid,jdbcType=VARCHAR},
       SPrice = #{record.sprice,jdbcType=DOUBLE},
       Amount = #{record.amount,jdbcType=DOUBLE},
       LastestCurrID = #{record.lastestcurrid,jdbcType=INTEGER},
@@ -389,9 +389,9 @@
       BillNo = #{record.billno,jdbcType=VARCHAR},
       ProdName = #{record.prodname,jdbcType=VARCHAR},
       ProdSize = #{record.prodsize,jdbcType=VARCHAR},
-      SUnitID = #{record.sunitid,jdbcType=INTEGER},
+      SUnitID = #{record.sunitid,jdbcType=VARCHAR},
       SQuantity = #{record.squantity,jdbcType=INTEGER},
-      CurrID = #{record.currid,jdbcType=INTEGER},
+      CurrID = #{record.currid,jdbcType=VARCHAR},
       SPrice = #{record.sprice,jdbcType=DOUBLE},
       Amount = #{record.amount,jdbcType=DOUBLE},
       LastestCurrID = #{record.lastestcurrid,jdbcType=INTEGER},
@@ -422,13 +422,13 @@
         ProdSize = #{prodsize,jdbcType=VARCHAR},
       </if>
       <if test="sunitid != null" >
-        SUnitID = #{sunitid,jdbcType=INTEGER},
+        SUnitID = #{sunitid,jdbcType=VARCHAR},
       </if>
       <if test="squantity != null" >
         SQuantity = #{squantity,jdbcType=INTEGER},
       </if>
       <if test="currid != null" >
-        CurrID = #{currid,jdbcType=INTEGER},
+        CurrID = #{currid,jdbcType=VARCHAR},
       </if>
       <if test="sprice != null" >
         SPrice = #{sprice,jdbcType=DOUBLE},
@@ -475,9 +475,9 @@
       BillNo = #{billno,jdbcType=VARCHAR},
       ProdName = #{prodname,jdbcType=VARCHAR},
       ProdSize = #{prodsize,jdbcType=VARCHAR},
-      SUnitID = #{sunitid,jdbcType=INTEGER},
+      SUnitID = #{sunitid,jdbcType=VARCHAR},
       SQuantity = #{squantity,jdbcType=INTEGER},
-      CurrID = #{currid,jdbcType=INTEGER},
+      CurrID = #{currid,jdbcType=VARCHAR},
       SPrice = #{sprice,jdbcType=DOUBLE},
       Amount = #{amount,jdbcType=DOUBLE},
       LastestCurrID = #{lastestcurrid,jdbcType=INTEGER},
@@ -498,9 +498,9 @@
       BillNo = #{billno,jdbcType=VARCHAR},
       ProdName = #{prodname,jdbcType=VARCHAR},
       ProdSize = #{prodsize,jdbcType=VARCHAR},
-      SUnitID = #{sunitid,jdbcType=INTEGER},
+      SUnitID = #{sunitid,jdbcType=VARCHAR},
       SQuantity = #{squantity,jdbcType=INTEGER},
-      CurrID = #{currid,jdbcType=INTEGER},
+      CurrID = #{currid,jdbcType=VARCHAR},
       SPrice = #{sprice,jdbcType=DOUBLE},
       Amount = #{amount,jdbcType=DOUBLE},
       LastestCurrID = #{lastestcurrid,jdbcType=INTEGER},

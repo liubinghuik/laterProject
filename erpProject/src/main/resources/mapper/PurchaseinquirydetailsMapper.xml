@@ -7,7 +7,7 @@
     <result column="BillNo" property="billno" jdbcType="VARCHAR" />
     <result column="ProdName" property="prodname" jdbcType="VARCHAR" />
     <result column="ProdSize" property="prodsize" jdbcType="VARCHAR" />
-    <result column="SUnitID" property="sunitid" jdbcType="INTEGER" />
+    <result column="SUnitID" property="sunitid" jdbcType="VARCHAR" />
     <result column="sQuantity" property="squantity" jdbcType="INTEGER" />
     <result column="OldPrice" property="oldprice" jdbcType="DOUBLE" />
     <result column="Discount" property="discount" jdbcType="DOUBLE" />
@@ -123,7 +123,7 @@
       TranType, FromNo, ItemRemark, 
       Remark)
     values (#{serno,jdbcType=INTEGER}, #{prodid,jdbcType=VARCHAR}, #{billno,jdbcType=VARCHAR}, 
-      #{prodname,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, #{sunitid,jdbcType=INTEGER}, 
+      #{prodname,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, #{sunitid,jdbcType=VARCHAR}, 
       #{squantity,jdbcType=INTEGER}, #{oldprice,jdbcType=DOUBLE}, #{discount,jdbcType=DOUBLE}, 
       #{sprice,jdbcType=DOUBLE}, #{amount,jdbcType=DOUBLE}, #{taxrate,jdbcType=DOUBLE}, 
       #{taxamt,jdbcType=DOUBLE}, #{vftotal,jdbcType=DOUBLE}, #{isgift,jdbcType=INTEGER}, 
@@ -208,7 +208,7 @@
         #{prodsize,jdbcType=VARCHAR},
       </if>
       <if test="sunitid != null" >
-        #{sunitid,jdbcType=INTEGER},
+        #{sunitid,jdbcType=VARCHAR},
       </if>
       <if test="squantity != null" >
         #{squantity,jdbcType=INTEGER},
@@ -276,7 +276,7 @@
         ProdSize = #{record.prodsize,jdbcType=VARCHAR},
       </if>
       <if test="record.sunitid != null" >
-        SUnitID = #{record.sunitid,jdbcType=INTEGER},
+        SUnitID = #{record.sunitid,jdbcType=VARCHAR},
       </if>
       <if test="record.squantity != null" >
         sQuantity = #{record.squantity,jdbcType=INTEGER},
@@ -329,7 +329,7 @@
       BillNo = #{record.billno,jdbcType=VARCHAR},
       ProdName = #{record.prodname,jdbcType=VARCHAR},
       ProdSize = #{record.prodsize,jdbcType=VARCHAR},
-      SUnitID = #{record.sunitid,jdbcType=INTEGER},
+      SUnitID = #{record.sunitid,jdbcType=VARCHAR},
       sQuantity = #{record.squantity,jdbcType=INTEGER},
       OldPrice = #{record.oldprice,jdbcType=DOUBLE},
       Discount = #{record.discount,jdbcType=DOUBLE},
@@ -363,7 +363,7 @@
         ProdSize = #{prodsize,jdbcType=VARCHAR},
       </if>
       <if test="sunitid != null" >
-        SUnitID = #{sunitid,jdbcType=INTEGER},
+        SUnitID = #{sunitid,jdbcType=VARCHAR},
       </if>
       <if test="squantity != null" >
         sQuantity = #{squantity,jdbcType=INTEGER},
@@ -413,7 +413,7 @@
       BillNo = #{billno,jdbcType=VARCHAR},
       ProdName = #{prodname,jdbcType=VARCHAR},
       ProdSize = #{prodsize,jdbcType=VARCHAR},
-      SUnitID = #{sunitid,jdbcType=INTEGER},
+      SUnitID = #{sunitid,jdbcType=VARCHAR},
       sQuantity = #{squantity,jdbcType=INTEGER},
       OldPrice = #{oldprice,jdbcType=DOUBLE},
       Discount = #{discount,jdbcType=DOUBLE},

@@ -10,13 +10,13 @@
     <result column="StdUnitID" property="stdunitid" jdbcType="INTEGER" />
     <result column="BarCodeID" property="barcodeid" jdbcType="VARCHAR" />
     <result column="SuggestPrice" property="suggestprice" jdbcType="DOUBLE" />
-    <result column="CurrID" property="currid" jdbcType="INTEGER" />
+    <result column="CurrID" property="currid" jdbcType="VARCHAR" />
     <result column="ProdForm" property="prodform" jdbcType="VARCHAR" />
     <result column="PriceOfTax" property="priceoftax" jdbcType="INTEGER" />
     <result column="TaxItemsID" property="taxitemsid" jdbcType="INTEGER" />
     <result column="BusiTaxRate" property="busitaxrate" jdbcType="DOUBLE" />
     <result column="AdvanceDays" property="advancedays" jdbcType="INTEGER" />
-    <result column="MajorSupplier" property="majorsupplier" jdbcType="INTEGER" />
+    <result column="MajorSupplier" property="majorsupplier" jdbcType="VARCHAR" />
     <result column="SalesPriceA" property="salespricea" jdbcType="DOUBLE" />
     <result column="SalesPriceB" property="salespriceb" jdbcType="DOUBLE" />
     <result column="SalesPriceC" property="salespricec" jdbcType="DOUBLE" />
@@ -30,13 +30,13 @@
     <result column="SafeQty" property="safeqty" jdbcType="INTEGER" />
     <result column="BAvgCost" property="bavgcost" jdbcType="DOUBLE" />
     <result column="BStdCost" property="bstdcost" jdbcType="DOUBLE" />
-    <result column="CAvgCost" property="cavgcost" jdbcType="DOUBLE" />
+    <result column="BTotalCost" property="btotalcost" jdbcType="DOUBLE" />
     <result column="CStdCost" property="cstdcost" jdbcType="DOUBLE" />
     <result column="BOutStockDay" property="boutstockday" jdbcType="DATE" />
     <result column="BInStockDay" property="binstockday" jdbcType="DATE" />
     <result column="InvalidDate" property="invaliddate" jdbcType="DATE" />
     <result column="ProdDesc" property="proddesc" jdbcType="VARCHAR" />
-    <result column="Coulumn1" property="coulumn1" jdbcType="VARCHAR" />
+    <result column="BAllAmt" property="ballamt" jdbcType="INTEGER" />
     <result column="Coulumn2" property="coulumn2" jdbcType="VARCHAR" />
     <result column="Coulumn3" property="coulumn3" jdbcType="VARCHAR" />
   </resultMap>
@@ -102,8 +102,8 @@
     ProdID, ProdName, ProdSize, EngName, ClassID, StdUnitID, BarCodeID, SuggestPrice, 
     CurrID, ProdForm, PriceOfTax, TaxItemsID, BusiTaxRate, AdvanceDays, MajorSupplier, 
     SalesPriceA, SalesPriceB, SalesPriceC, SalesPriceD, SalesPriceE, StdPrice, BatchUsed, 
-    EffectDateUsed, ValidDateUsed, DefValidDay, SafeQty, BAvgCost, BStdCost, CAvgCost, 
-    CStdCost, BOutStockDay, BInStockDay, InvalidDate, ProdDesc, Coulumn1, Coulumn2, Coulumn3
+    EffectDateUsed, ValidDateUsed, DefValidDay, SafeQty, BAvgCost, BStdCost, BTotalCost, 
+    CStdCost, BOutStockDay, BInStockDay, InvalidDate, ProdDesc, BAllAmt, Coulumn2, Coulumn3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.MaterialmasterExample" >
     select
@@ -145,22 +145,22 @@
       SalesPriceD, SalesPriceE, StdPrice, 
       BatchUsed, EffectDateUsed, ValidDateUsed, 
       DefValidDay, SafeQty, BAvgCost, 
-      BStdCost, CAvgCost, CStdCost, 
+      BStdCost, BTotalCost, CStdCost, 
       BOutStockDay, BInStockDay, InvalidDate, 
-      ProdDesc, Coulumn1, Coulumn2, 
+      ProdDesc, BAllAmt, Coulumn2, 
       Coulumn3)
     values (#{prodid,jdbcType=VARCHAR}, #{prodname,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, 
       #{engname,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, #{stdunitid,jdbcType=INTEGER}, 
-      #{barcodeid,jdbcType=VARCHAR}, #{suggestprice,jdbcType=DOUBLE}, #{currid,jdbcType=INTEGER}, 
+      #{barcodeid,jdbcType=VARCHAR}, #{suggestprice,jdbcType=DOUBLE}, #{currid,jdbcType=VARCHAR}, 
       #{prodform,jdbcType=VARCHAR}, #{priceoftax,jdbcType=INTEGER}, #{taxitemsid,jdbcType=INTEGER}, 
-      #{busitaxrate,jdbcType=DOUBLE}, #{advancedays,jdbcType=INTEGER}, #{majorsupplier,jdbcType=INTEGER}, 
+      #{busitaxrate,jdbcType=DOUBLE}, #{advancedays,jdbcType=INTEGER}, #{majorsupplier,jdbcType=VARCHAR}, 
       #{salespricea,jdbcType=DOUBLE}, #{salespriceb,jdbcType=DOUBLE}, #{salespricec,jdbcType=DOUBLE}, 
       #{salespriced,jdbcType=DOUBLE}, #{salespricee,jdbcType=DOUBLE}, #{stdprice,jdbcType=DOUBLE}, 
       #{batchused,jdbcType=INTEGER}, #{effectdateused,jdbcType=INTEGER}, #{validdateused,jdbcType=INTEGER}, 
       #{defvalidday,jdbcType=INTEGER}, #{safeqty,jdbcType=INTEGER}, #{bavgcost,jdbcType=DOUBLE}, 
-      #{bstdcost,jdbcType=DOUBLE}, #{cavgcost,jdbcType=DOUBLE}, #{cstdcost,jdbcType=DOUBLE}, 
+      #{bstdcost,jdbcType=DOUBLE}, #{btotalcost,jdbcType=DOUBLE}, #{cstdcost,jdbcType=DOUBLE}, 
       #{boutstockday,jdbcType=DATE}, #{binstockday,jdbcType=DATE}, #{invaliddate,jdbcType=DATE}, 
-      #{proddesc,jdbcType=VARCHAR}, #{coulumn1,jdbcType=VARCHAR}, #{coulumn2,jdbcType=VARCHAR}, 
+      #{proddesc,jdbcType=VARCHAR}, #{ballamt,jdbcType=INTEGER}, #{coulumn2,jdbcType=VARCHAR}, 
       #{coulumn3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Materialmaster" >
@@ -250,8 +250,8 @@
       <if test="bstdcost != null" >
         BStdCost,
       </if>
-      <if test="cavgcost != null" >
-        CAvgCost,
+      <if test="btotalcost != null" >
+        BTotalCost,
       </if>
       <if test="cstdcost != null" >
         CStdCost,
@@ -268,8 +268,8 @@
       <if test="proddesc != null" >
         ProdDesc,
       </if>
-      <if test="coulumn1 != null" >
-        Coulumn1,
+      <if test="ballamt != null" >
+        BAllAmt,
       </if>
       <if test="coulumn2 != null" >
         Coulumn2,
@@ -304,7 +304,7 @@
         #{suggestprice,jdbcType=DOUBLE},
       </if>
       <if test="currid != null" >
-        #{currid,jdbcType=INTEGER},
+        #{currid,jdbcType=VARCHAR},
       </if>
       <if test="prodform != null" >
         #{prodform,jdbcType=VARCHAR},
@@ -322,7 +322,7 @@
         #{advancedays,jdbcType=INTEGER},
       </if>
       <if test="majorsupplier != null" >
-        #{majorsupplier,jdbcType=INTEGER},
+        #{majorsupplier,jdbcType=VARCHAR},
       </if>
       <if test="salespricea != null" >
         #{salespricea,jdbcType=DOUBLE},
@@ -363,8 +363,8 @@
       <if test="bstdcost != null" >
         #{bstdcost,jdbcType=DOUBLE},
       </if>
-      <if test="cavgcost != null" >
-        #{cavgcost,jdbcType=DOUBLE},
+      <if test="btotalcost != null" >
+        #{btotalcost,jdbcType=DOUBLE},
       </if>
       <if test="cstdcost != null" >
         #{cstdcost,jdbcType=DOUBLE},
@@ -381,8 +381,8 @@
       <if test="proddesc != null" >
         #{proddesc,jdbcType=VARCHAR},
       </if>
-      <if test="coulumn1 != null" >
-        #{coulumn1,jdbcType=VARCHAR},
+      <if test="ballamt != null" >
+        #{ballamt,jdbcType=INTEGER},
       </if>
       <if test="coulumn2 != null" >
         #{coulumn2,jdbcType=VARCHAR},
@@ -426,7 +426,7 @@
         SuggestPrice = #{record.suggestprice,jdbcType=DOUBLE},
       </if>
       <if test="record.currid != null" >
-        CurrID = #{record.currid,jdbcType=INTEGER},
+        CurrID = #{record.currid,jdbcType=VARCHAR},
       </if>
       <if test="record.prodform != null" >
         ProdForm = #{record.prodform,jdbcType=VARCHAR},
@@ -444,7 +444,7 @@
         AdvanceDays = #{record.advancedays,jdbcType=INTEGER},
       </if>
       <if test="record.majorsupplier != null" >
-        MajorSupplier = #{record.majorsupplier,jdbcType=INTEGER},
+        MajorSupplier = #{record.majorsupplier,jdbcType=VARCHAR},
       </if>
       <if test="record.salespricea != null" >
         SalesPriceA = #{record.salespricea,jdbcType=DOUBLE},
@@ -485,8 +485,8 @@
       <if test="record.bstdcost != null" >
         BStdCost = #{record.bstdcost,jdbcType=DOUBLE},
       </if>
-      <if test="record.cavgcost != null" >
-        CAvgCost = #{record.cavgcost,jdbcType=DOUBLE},
+      <if test="record.btotalcost != null" >
+        BTotalCost = #{record.btotalcost,jdbcType=DOUBLE},
       </if>
       <if test="record.cstdcost != null" >
         CStdCost = #{record.cstdcost,jdbcType=DOUBLE},
@@ -503,8 +503,8 @@
       <if test="record.proddesc != null" >
         ProdDesc = #{record.proddesc,jdbcType=VARCHAR},
       </if>
-      <if test="record.coulumn1 != null" >
-        Coulumn1 = #{record.coulumn1,jdbcType=VARCHAR},
+      <if test="record.ballamt != null" >
+        BAllAmt = #{record.ballamt,jdbcType=INTEGER},
       </if>
       <if test="record.coulumn2 != null" >
         Coulumn2 = #{record.coulumn2,jdbcType=VARCHAR},
@@ -527,13 +527,13 @@
       StdUnitID = #{record.stdunitid,jdbcType=INTEGER},
       BarCodeID = #{record.barcodeid,jdbcType=VARCHAR},
       SuggestPrice = #{record.suggestprice,jdbcType=DOUBLE},
-      CurrID = #{record.currid,jdbcType=INTEGER},
+      CurrID = #{record.currid,jdbcType=VARCHAR},
       ProdForm = #{record.prodform,jdbcType=VARCHAR},
       PriceOfTax = #{record.priceoftax,jdbcType=INTEGER},
       TaxItemsID = #{record.taxitemsid,jdbcType=INTEGER},
       BusiTaxRate = #{record.busitaxrate,jdbcType=DOUBLE},
       AdvanceDays = #{record.advancedays,jdbcType=INTEGER},
-      MajorSupplier = #{record.majorsupplier,jdbcType=INTEGER},
+      MajorSupplier = #{record.majorsupplier,jdbcType=VARCHAR},
       SalesPriceA = #{record.salespricea,jdbcType=DOUBLE},
       SalesPriceB = #{record.salespriceb,jdbcType=DOUBLE},
       SalesPriceC = #{record.salespricec,jdbcType=DOUBLE},
@@ -547,13 +547,13 @@
       SafeQty = #{record.safeqty,jdbcType=INTEGER},
       BAvgCost = #{record.bavgcost,jdbcType=DOUBLE},
       BStdCost = #{record.bstdcost,jdbcType=DOUBLE},
-      CAvgCost = #{record.cavgcost,jdbcType=DOUBLE},
+      BTotalCost = #{record.btotalcost,jdbcType=DOUBLE},
       CStdCost = #{record.cstdcost,jdbcType=DOUBLE},
       BOutStockDay = #{record.boutstockday,jdbcType=DATE},
       BInStockDay = #{record.binstockday,jdbcType=DATE},
       InvalidDate = #{record.invaliddate,jdbcType=DATE},
       ProdDesc = #{record.proddesc,jdbcType=VARCHAR},
-      Coulumn1 = #{record.coulumn1,jdbcType=VARCHAR},
+      BAllAmt = #{record.ballamt,jdbcType=INTEGER},
       Coulumn2 = #{record.coulumn2,jdbcType=VARCHAR},
       Coulumn3 = #{record.coulumn3,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -585,7 +585,7 @@
         SuggestPrice = #{suggestprice,jdbcType=DOUBLE},
       </if>
       <if test="currid != null" >
-        CurrID = #{currid,jdbcType=INTEGER},
+        CurrID = #{currid,jdbcType=VARCHAR},
       </if>
       <if test="prodform != null" >
         ProdForm = #{prodform,jdbcType=VARCHAR},
@@ -603,7 +603,7 @@
         AdvanceDays = #{advancedays,jdbcType=INTEGER},
       </if>
       <if test="majorsupplier != null" >
-        MajorSupplier = #{majorsupplier,jdbcType=INTEGER},
+        MajorSupplier = #{majorsupplier,jdbcType=VARCHAR},
       </if>
       <if test="salespricea != null" >
         SalesPriceA = #{salespricea,jdbcType=DOUBLE},
@@ -644,8 +644,8 @@
       <if test="bstdcost != null" >
         BStdCost = #{bstdcost,jdbcType=DOUBLE},
       </if>
-      <if test="cavgcost != null" >
-        CAvgCost = #{cavgcost,jdbcType=DOUBLE},
+      <if test="btotalcost != null" >
+        BTotalCost = #{btotalcost,jdbcType=DOUBLE},
       </if>
       <if test="cstdcost != null" >
         CStdCost = #{cstdcost,jdbcType=DOUBLE},
@@ -662,8 +662,8 @@
       <if test="proddesc != null" >
         ProdDesc = #{proddesc,jdbcType=VARCHAR},
       </if>
-      <if test="coulumn1 != null" >
-        Coulumn1 = #{coulumn1,jdbcType=VARCHAR},
+      <if test="ballamt != null" >
+        BAllAmt = #{ballamt,jdbcType=INTEGER},
       </if>
       <if test="coulumn2 != null" >
         Coulumn2 = #{coulumn2,jdbcType=VARCHAR},
@@ -683,13 +683,13 @@
       StdUnitID = #{stdunitid,jdbcType=INTEGER},
       BarCodeID = #{barcodeid,jdbcType=VARCHAR},
       SuggestPrice = #{suggestprice,jdbcType=DOUBLE},
-      CurrID = #{currid,jdbcType=INTEGER},
+      CurrID = #{currid,jdbcType=VARCHAR},
       ProdForm = #{prodform,jdbcType=VARCHAR},
       PriceOfTax = #{priceoftax,jdbcType=INTEGER},
       TaxItemsID = #{taxitemsid,jdbcType=INTEGER},
       BusiTaxRate = #{busitaxrate,jdbcType=DOUBLE},
       AdvanceDays = #{advancedays,jdbcType=INTEGER},
-      MajorSupplier = #{majorsupplier,jdbcType=INTEGER},
+      MajorSupplier = #{majorsupplier,jdbcType=VARCHAR},
       SalesPriceA = #{salespricea,jdbcType=DOUBLE},
       SalesPriceB = #{salespriceb,jdbcType=DOUBLE},
       SalesPriceC = #{salespricec,jdbcType=DOUBLE},
@@ -703,13 +703,13 @@
       SafeQty = #{safeqty,jdbcType=INTEGER},
       BAvgCost = #{bavgcost,jdbcType=DOUBLE},
       BStdCost = #{bstdcost,jdbcType=DOUBLE},
-      CAvgCost = #{cavgcost,jdbcType=DOUBLE},
+      BTotalCost = #{btotalcost,jdbcType=DOUBLE},
       CStdCost = #{cstdcost,jdbcType=DOUBLE},
       BOutStockDay = #{boutstockday,jdbcType=DATE},
       BInStockDay = #{binstockday,jdbcType=DATE},
       InvalidDate = #{invaliddate,jdbcType=DATE},
       ProdDesc = #{proddesc,jdbcType=VARCHAR},
-      Coulumn1 = #{coulumn1,jdbcType=VARCHAR},
+      BAllAmt = #{ballamt,jdbcType=INTEGER},
       Coulumn2 = #{coulumn2,jdbcType=VARCHAR},
       Coulumn3 = #{coulumn3,jdbcType=VARCHAR}
     where ProdID = #{prodid,jdbcType=VARCHAR}
