@@ -17,7 +17,7 @@ public class Tpurchasereceipt {
 
     private String addressid;
 
-    private Integer saleclassid;
+    private String saleclassid;
 
     private Integer priceoftax;
 
@@ -95,11 +95,11 @@ public class Tpurchasereceipt {
         this.addressid = addressid;
     }
 
-    public Integer getSaleclassid() {
+    public String getSaleclassid() {
         return saleclassid;
     }
 
-    public void setSaleclassid(Integer saleclassid) {
+    public void setSaleclassid(String saleclassid) {
         this.saleclassid = saleclassid;
     }
 
