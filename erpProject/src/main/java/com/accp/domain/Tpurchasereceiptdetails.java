@@ -1,7 +1,7 @@
 package com.accp.domain;
 
 public class Tpurchasereceiptdetails {
-    private Integer lineno;
+    private String lineno;
 
     private Integer prodid;
 
@@ -39,11 +39,11 @@ public class Tpurchasereceiptdetails {
 
     private Double mlappfare;
 
-    public Integer getLineno() {
+    public String getLineno() {
         return lineno;
     }
 
-    public void setLineno(Integer lineno) {
+    public void setLineno(String lineno) {
         this.lineno = lineno;
     }
 

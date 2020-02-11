@@ -114,52 +114,62 @@ public class TpurchasereceiptdetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andLinenoEqualTo(Integer value) {
+        public Criteria andLinenoEqualTo(String value) {
             addCriterion("LineNo =", value, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoNotEqualTo(Integer value) {
+        public Criteria andLinenoNotEqualTo(String value) {
             addCriterion("LineNo <>", value, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoGreaterThan(Integer value) {
+        public Criteria andLinenoGreaterThan(String value) {
             addCriterion("LineNo >", value, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoGreaterThanOrEqualTo(Integer value) {
+        public Criteria andLinenoGreaterThanOrEqualTo(String value) {
             addCriterion("LineNo >=", value, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoLessThan(Integer value) {
+        public Criteria andLinenoLessThan(String value) {
             addCriterion("LineNo <", value, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoLessThanOrEqualTo(Integer value) {
+        public Criteria andLinenoLessThanOrEqualTo(String value) {
             addCriterion("LineNo <=", value, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoIn(List<Integer> values) {
+        public Criteria andLinenoLike(String value) {
+            addCriterion("LineNo like", value, "lineno");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinenoNotLike(String value) {
+            addCriterion("LineNo not like", value, "lineno");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinenoIn(List<String> values) {
             addCriterion("LineNo in", values, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoNotIn(List<Integer> values) {
+        public Criteria andLinenoNotIn(List<String> values) {
             addCriterion("LineNo not in", values, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoBetween(Integer value1, Integer value2) {
+        public Criteria andLinenoBetween(String value1, String value2) {
             addCriterion("LineNo between", value1, value2, "lineno");
             return (Criteria) this;
         }
 
-        public Criteria andLinenoNotBetween(Integer value1, Integer value2) {
+        public Criteria andLinenoNotBetween(String value1, String value2) {
             addCriterion("LineNo not between", value1, value2, "lineno");
             return (Criteria) this;
         }

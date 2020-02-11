@@ -202,53 +202,63 @@ public class PurchaserequisitionsdetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andProdidEqualTo(Date value) {
-            addCriterionForJDBCDate("ProdID =", value, "prodid");
+        public Criteria andProdidEqualTo(String value) {
+            addCriterion("ProdID =", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidNotEqualTo(Date value) {
-            addCriterionForJDBCDate("ProdID <>", value, "prodid");
+        public Criteria andProdidNotEqualTo(String value) {
+            addCriterion("ProdID <>", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidGreaterThan(Date value) {
-            addCriterionForJDBCDate("ProdID >", value, "prodid");
+        public Criteria andProdidGreaterThan(String value) {
+            addCriterion("ProdID >", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ProdID >=", value, "prodid");
+        public Criteria andProdidGreaterThanOrEqualTo(String value) {
+            addCriterion("ProdID >=", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidLessThan(Date value) {
-            addCriterionForJDBCDate("ProdID <", value, "prodid");
+        public Criteria andProdidLessThan(String value) {
+            addCriterion("ProdID <", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ProdID <=", value, "prodid");
+        public Criteria andProdidLessThanOrEqualTo(String value) {
+            addCriterion("ProdID <=", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidIn(List<Date> values) {
-            addCriterionForJDBCDate("ProdID in", values, "prodid");
+        public Criteria andProdidLike(String value) {
+            addCriterion("ProdID like", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidNotIn(List<Date> values) {
-            addCriterionForJDBCDate("ProdID not in", values, "prodid");
+        public Criteria andProdidNotLike(String value) {
+            addCriterion("ProdID not like", value, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ProdID between", value1, value2, "prodid");
+        public Criteria andProdidIn(List<String> values) {
+            addCriterion("ProdID in", values, "prodid");
             return (Criteria) this;
         }
 
-        public Criteria andProdidNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ProdID not between", value1, value2, "prodid");
+        public Criteria andProdidNotIn(List<String> values) {
+            addCriterion("ProdID not in", values, "prodid");
+            return (Criteria) this;
+        }
+
+        public Criteria andProdidBetween(String value1, String value2) {
+            addCriterion("ProdID between", value1, value2, "prodid");
+            return (Criteria) this;
+        }
+
+        public Criteria andProdidNotBetween(String value1, String value2) {
+            addCriterion("ProdID not between", value1, value2, "prodid");
             return (Criteria) this;
         }
 
@@ -792,52 +802,62 @@ public class PurchaserequisitionsdetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridEqualTo(Integer value) {
+        public Criteria andLastestcurridEqualTo(String value) {
             addCriterion("LastestCurrID =", value, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridNotEqualTo(Integer value) {
+        public Criteria andLastestcurridNotEqualTo(String value) {
             addCriterion("LastestCurrID <>", value, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridGreaterThan(Integer value) {
+        public Criteria andLastestcurridGreaterThan(String value) {
             addCriterion("LastestCurrID >", value, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridGreaterThanOrEqualTo(Integer value) {
+        public Criteria andLastestcurridGreaterThanOrEqualTo(String value) {
             addCriterion("LastestCurrID >=", value, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridLessThan(Integer value) {
+        public Criteria andLastestcurridLessThan(String value) {
             addCriterion("LastestCurrID <", value, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridLessThanOrEqualTo(Integer value) {
+        public Criteria andLastestcurridLessThanOrEqualTo(String value) {
             addCriterion("LastestCurrID <=", value, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridIn(List<Integer> values) {
+        public Criteria andLastestcurridLike(String value) {
+            addCriterion("LastestCurrID like", value, "lastestcurrid");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastestcurridNotLike(String value) {
+            addCriterion("LastestCurrID not like", value, "lastestcurrid");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastestcurridIn(List<String> values) {
             addCriterion("LastestCurrID in", values, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridNotIn(List<Integer> values) {
+        public Criteria andLastestcurridNotIn(List<String> values) {
             addCriterion("LastestCurrID not in", values, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridBetween(Integer value1, Integer value2) {
+        public Criteria andLastestcurridBetween(String value1, String value2) {
             addCriterion("LastestCurrID between", value1, value2, "lastestcurrid");
             return (Criteria) this;
         }
 
-        public Criteria andLastestcurridNotBetween(Integer value1, Integer value2) {
+        public Criteria andLastestcurridNotBetween(String value1, String value2) {
             addCriterion("LastestCurrID not between", value1, value2, "lastestcurrid");
             return (Criteria) this;
         }

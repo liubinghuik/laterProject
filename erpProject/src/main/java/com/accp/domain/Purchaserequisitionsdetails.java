@@ -5,7 +5,7 @@ import java.util.Date;
 public class Purchaserequisitionsdetails {
     private Integer serno;
 
-    private Date prodid;
+    private String prodid;
 
     private String billno;
 
@@ -23,7 +23,7 @@ public class Purchaserequisitionsdetails {
 
     private Double amount;
 
-    private Integer lastestcurrid;
+    private String lastestcurrid;
 
     private Double lastestprice;
 
@@ -47,11 +47,11 @@ public class Purchaserequisitionsdetails {
         this.serno = serno;
     }
 
-    public Date getProdid() {
+    public String getProdid() {
         return prodid;
     }
 
-    public void setProdid(Date prodid) {
+    public void setProdid(String prodid) {
         this.prodid = prodid;
     }
 
@@ -119,11 +119,11 @@ public class Purchaserequisitionsdetails {
         this.amount = amount;
     }
 
-    public Integer getLastestcurrid() {
+    public String getLastestcurrid() {
         return lastestcurrid;
     }
 
-    public void setLastestcurrid(Integer lastestcurrid) {
+    public void setLastestcurrid(String lastestcurrid) {
         this.lastestcurrid = lastestcurrid;
     }
 
