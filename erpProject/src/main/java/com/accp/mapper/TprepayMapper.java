@@ -6,6 +6,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TprepayMapper {
+	List<Tprepay> showPrepay(@Param("startseachtime") String startseachtime,
+			@Param("endseachtime") String endseachtime,@Param("id") String id,@Param("sid") String sid);
+	
     int countByExample(TprepayExample example);
 
     int deleteByExample(TprepayExample example);
