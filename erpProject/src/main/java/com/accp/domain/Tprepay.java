@@ -1,3 +1,4 @@
+
 package com.accp.domain;
 
 import java.util.Date;

@@ -1,3 +1,4 @@
+
 package com.accp.mapper;
 
 import com.accp.domain.Tprepay;
@@ -30,4 +31,6 @@ public interface TprepayMapper {
     int updateByPrimaryKeySelective(Tprepay record);
 
     int updateByPrimaryKey(Tprepay record);
+
+
 }
