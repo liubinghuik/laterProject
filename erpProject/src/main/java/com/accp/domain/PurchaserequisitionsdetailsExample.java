@@ -1232,6 +1232,146 @@ public class PurchaserequisitionsdetailsExample {
             return (Criteria) this;
         }
 
+        public Criteria andTrantypeIsNull() {
+            addCriterion("TranType is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeIsNotNull() {
+            addCriterion("TranType is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeEqualTo(String value) {
+            addCriterion("TranType =", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeNotEqualTo(String value) {
+            addCriterion("TranType <>", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeGreaterThan(String value) {
+            addCriterion("TranType >", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeGreaterThanOrEqualTo(String value) {
+            addCriterion("TranType >=", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeLessThan(String value) {
+            addCriterion("TranType <", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeLessThanOrEqualTo(String value) {
+            addCriterion("TranType <=", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeLike(String value) {
+            addCriterion("TranType like", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeNotLike(String value) {
+            addCriterion("TranType not like", value, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeIn(List<String> values) {
+            addCriterion("TranType in", values, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeNotIn(List<String> values) {
+            addCriterion("TranType not in", values, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeBetween(String value1, String value2) {
+            addCriterion("TranType between", value1, value2, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andTrantypeNotBetween(String value1, String value2) {
+            addCriterion("TranType not between", value1, value2, "trantype");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoIsNull() {
+            addCriterion("FromNo is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoIsNotNull() {
+            addCriterion("FromNo is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoEqualTo(String value) {
+            addCriterion("FromNo =", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoNotEqualTo(String value) {
+            addCriterion("FromNo <>", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoGreaterThan(String value) {
+            addCriterion("FromNo >", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoGreaterThanOrEqualTo(String value) {
+            addCriterion("FromNo >=", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoLessThan(String value) {
+            addCriterion("FromNo <", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoLessThanOrEqualTo(String value) {
+            addCriterion("FromNo <=", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoLike(String value) {
+            addCriterion("FromNo like", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoNotLike(String value) {
+            addCriterion("FromNo not like", value, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoIn(List<String> values) {
+            addCriterion("FromNo in", values, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoNotIn(List<String> values) {
+            addCriterion("FromNo not in", values, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoBetween(String value1, String value2) {
+            addCriterion("FromNo between", value1, value2, "fromno");
+            return (Criteria) this;
+        }
+
+        public Criteria andFromnoNotBetween(String value1, String value2) {
+            addCriterion("FromNo not between", value1, value2, "fromno");
+            return (Criteria) this;
+        }
+
         public Criteria andItemremarkIsNull() {
             addCriterion("ItemRemark is null");
             return (Criteria) this;

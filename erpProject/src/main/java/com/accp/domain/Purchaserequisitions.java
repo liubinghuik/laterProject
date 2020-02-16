@@ -11,7 +11,7 @@ public class Purchaserequisitions {
 
     private Integer billstatus;
 
-    private Integer salesid;
+    private String salesid;
 
     private Integer departid;
 
@@ -61,11 +61,11 @@ public class Purchaserequisitions {
         this.billstatus = billstatus;
     }
 
-    public Integer getSalesid() {
+    public String getSalesid() {
         return salesid;
     }
 
-    public void setSalesid(Integer salesid) {
+    public void setSalesid(String salesid) {
         this.salesid = salesid;
     }
 

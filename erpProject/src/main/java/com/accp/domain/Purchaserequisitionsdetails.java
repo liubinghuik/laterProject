@@ -37,6 +37,10 @@ public class Purchaserequisitionsdetails {
 
     private String remark;
 
+    private String trantype;
+
+    private String fromno;
+
     private String itemremark;
 
     public Integer getSerno() {
@@ -173,6 +177,22 @@ public class Purchaserequisitionsdetails {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getTrantype() {
+        return trantype;
+    }
+
+    public void setTrantype(String trantype) {
+        this.trantype = trantype;
+    }
+
+    public String getFromno() {
+        return fromno;
+    }
+
+    public void setFromno(String fromno) {
+        this.fromno = fromno;
     }
 
     public String getItemremark() {

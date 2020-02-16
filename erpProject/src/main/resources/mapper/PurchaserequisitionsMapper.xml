@@ -6,7 +6,7 @@
     <result column="BillDate" property="billdate" jdbcType="DATE" />
     <result column="BillStyleID" property="billstyleid" jdbcType="INTEGER" />
     <result column="BillStatus" property="billstatus" jdbcType="INTEGER" />
-    <result column="SalesID" property="salesid" jdbcType="INTEGER" />
+    <result column="SalesID" property="salesid" jdbcType="VARCHAR" />
     <result column="DepartID" property="departid" jdbcType="INTEGER" />
     <result column="Maker" property="maker" jdbcType="VARCHAR" />
     <result column="Permitter" property="permitter" jdbcType="VARCHAR" />
@@ -115,7 +115,7 @@
       Audit, column1, Column2, 
       Column3)
     values (#{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=DATE}, #{billstyleid,jdbcType=INTEGER}, 
-      #{billstatus,jdbcType=INTEGER}, #{salesid,jdbcType=INTEGER}, #{departid,jdbcType=INTEGER}, 
+      #{billstatus,jdbcType=INTEGER}, #{salesid,jdbcType=VARCHAR}, #{departid,jdbcType=INTEGER}, 
       #{maker,jdbcType=VARCHAR}, #{permitter,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
       #{audit,jdbcType=INTEGER}, #{column1,jdbcType=VARCHAR}, #{column2,jdbcType=VARCHAR}, 
       #{column3,jdbcType=VARCHAR})
@@ -177,7 +177,7 @@
         #{billstatus,jdbcType=INTEGER},
       </if>
       <if test="salesid != null" >
-        #{salesid,jdbcType=INTEGER},
+        #{salesid,jdbcType=VARCHAR},
       </if>
       <if test="departid != null" >
         #{departid,jdbcType=INTEGER},
@@ -227,7 +227,7 @@
         BillStatus = #{record.billstatus,jdbcType=INTEGER},
       </if>
       <if test="record.salesid != null" >
-        SalesID = #{record.salesid,jdbcType=INTEGER},
+        SalesID = #{record.salesid,jdbcType=VARCHAR},
       </if>
       <if test="record.departid != null" >
         DepartID = #{record.departid,jdbcType=INTEGER},
@@ -264,7 +264,7 @@
       BillDate = #{record.billdate,jdbcType=DATE},
       BillStyleID = #{record.billstyleid,jdbcType=INTEGER},
       BillStatus = #{record.billstatus,jdbcType=INTEGER},
-      SalesID = #{record.salesid,jdbcType=INTEGER},
+      SalesID = #{record.salesid,jdbcType=VARCHAR},
       DepartID = #{record.departid,jdbcType=INTEGER},
       Maker = #{record.maker,jdbcType=VARCHAR},
       Permitter = #{record.permitter,jdbcType=VARCHAR},
@@ -290,7 +290,7 @@
         BillStatus = #{billstatus,jdbcType=INTEGER},
       </if>
       <if test="salesid != null" >
-        SalesID = #{salesid,jdbcType=INTEGER},
+        SalesID = #{salesid,jdbcType=VARCHAR},
       </if>
       <if test="departid != null" >
         DepartID = #{departid,jdbcType=INTEGER},
@@ -324,7 +324,7 @@
     set BillDate = #{billdate,jdbcType=DATE},
       BillStyleID = #{billstyleid,jdbcType=INTEGER},
       BillStatus = #{billstatus,jdbcType=INTEGER},
-      SalesID = #{salesid,jdbcType=INTEGER},
+      SalesID = #{salesid,jdbcType=VARCHAR},
       DepartID = #{departid,jdbcType=INTEGER},
       Maker = #{maker,jdbcType=VARCHAR},
       Permitter = #{permitter,jdbcType=VARCHAR},
