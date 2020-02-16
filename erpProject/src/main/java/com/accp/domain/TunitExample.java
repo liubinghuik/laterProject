@@ -114,52 +114,62 @@ public class TunitExample {
             return (Criteria) this;
         }
 
-        public Criteria andUnitidEqualTo(Integer value) {
+        public Criteria andUnitidEqualTo(String value) {
             addCriterion("UnitID =", value, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidNotEqualTo(Integer value) {
+        public Criteria andUnitidNotEqualTo(String value) {
             addCriterion("UnitID <>", value, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidGreaterThan(Integer value) {
+        public Criteria andUnitidGreaterThan(String value) {
             addCriterion("UnitID >", value, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUnitidGreaterThanOrEqualTo(String value) {
             addCriterion("UnitID >=", value, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidLessThan(Integer value) {
+        public Criteria andUnitidLessThan(String value) {
             addCriterion("UnitID <", value, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidLessThanOrEqualTo(Integer value) {
+        public Criteria andUnitidLessThanOrEqualTo(String value) {
             addCriterion("UnitID <=", value, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidIn(List<Integer> values) {
+        public Criteria andUnitidLike(String value) {
+            addCriterion("UnitID like", value, "unitid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitidNotLike(String value) {
+            addCriterion("UnitID not like", value, "unitid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitidIn(List<String> values) {
             addCriterion("UnitID in", values, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidNotIn(List<Integer> values) {
+        public Criteria andUnitidNotIn(List<String> values) {
             addCriterion("UnitID not in", values, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidBetween(Integer value1, Integer value2) {
+        public Criteria andUnitidBetween(String value1, String value2) {
             addCriterion("UnitID between", value1, value2, "unitid");
             return (Criteria) this;
         }
 
-        public Criteria andUnitidNotBetween(Integer value1, Integer value2) {
+        public Criteria andUnitidNotBetween(String value1, String value2) {
             addCriterion("UnitID not between", value1, value2, "unitid");
             return (Criteria) this;
         }

@@ -10,7 +10,7 @@ public interface TunitMapper {
 
     int deleteByExample(TunitExample example);
 
-    int deleteByPrimaryKey(Integer unitid);
+    int deleteByPrimaryKey(String unitid);
 
     int insert(Tunit record);
 
@@ -18,7 +18,7 @@ public interface TunitMapper {
 
     List<Tunit> selectByExample(TunitExample example);
 
-    Tunit selectByPrimaryKey(Integer unitid);
+    Tunit selectByPrimaryKey(String unitid);
 
     int updateByExampleSelective(@Param("record") Tunit record, @Param("example") TunitExample example);
 
