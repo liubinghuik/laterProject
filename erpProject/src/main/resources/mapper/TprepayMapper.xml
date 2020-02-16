@@ -24,6 +24,31 @@
     <result column="auditstate" property="auditstate" jdbcType="INTEGER" />
     <result column="audit" property="audit" jdbcType="INTEGER" />
   </resultMap>
+  <!-- 延伸映射 -->
+  <resultMap id="BaseResultMapExtends" type="com.accp.domain.Tprepay"
+  extends="BaseResultMap">
+  	<result column="sname" property="sname"/>
+  	<result column="money" property="money"/>
+  </resultMap>
+  <!-- 查询预付款列表 -->
+  <select id="showPrepay">
+  	SELECT `tprepay`.`id`,`tprepay`.`date`,`tprepay`.`auditstate`,supplier.`fullName` sname,`tprepay`.`paymentamout1`+`tprepay`.`paymentamout2` money 
+	FROM `tprepay`,`supplier`
+	WHERE `tprepay`.`sid` = `supplier`.`sid`
+	<if test="id != '' and id != null">
+	AND `tprepay`.`id` LIKE	CONCAT('%',#{id},'%')
+	</if>
+	<if test="sid != '' and sid != null">
+	AND supplier.`sid`= #{sid}
+	</if>
+	<if test="startseachtime != '' and startseachtime != null">
+		AND `tprepay`.`date` &gt;= #{startseachtime}
+	</if>
+	<if test="endseachtime != '' and endseachtime != null ">
+		AND `tprepay`.`date` &lt;= #{endseachtime}
+	</if>
+	ORDER BY id DESC
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -460,4 +485,5 @@
       audit = #{audit,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
 </mapper>
