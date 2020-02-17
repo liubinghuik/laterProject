@@ -486,5 +486,4 @@
       audit = #{audit,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-
 </mapper>

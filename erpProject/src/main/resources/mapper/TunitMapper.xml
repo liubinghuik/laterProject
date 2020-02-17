@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.mapper.TunitMapper" >
   <resultMap id="BaseResultMap" type="com.accp.domain.Tunit" >
-    <id column="UnitID" property="unitid" jdbcType="INTEGER" />
+    <id column="UnitID" property="unitid" jdbcType="VARCHAR" />
     <result column="UnitName" property="unitname" jdbcType="VARCHAR" />
     <result column="EngName" property="engname" jdbcType="VARCHAR" />
     <result column="Memo" property="memo" jdbcType="VARCHAR" />
@@ -82,15 +82,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from tunit
-    where UnitID = #{unitid,jdbcType=INTEGER}
+    where UnitID = #{unitid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tunit
-    where UnitID = #{unitid,jdbcType=INTEGER}
+    where UnitID = #{unitid,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.accp.domain.TunitExample" >
     delete from tunit
@@ -101,7 +101,7 @@
   <insert id="insert" parameterType="com.accp.domain.Tunit" >
     insert into tunit (UnitID, UnitName, EngName, 
       Memo)
-    values (#{unitid,jdbcType=INTEGER}, #{unitname,jdbcType=VARCHAR}, #{engname,jdbcType=VARCHAR}, 
+    values (#{unitid,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, #{engname,jdbcType=VARCHAR}, 
       #{memo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Tunit" >
@@ -122,7 +122,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="unitid != null" >
-        #{unitid,jdbcType=INTEGER},
+        #{unitid,jdbcType=VARCHAR},
       </if>
       <if test="unitname != null" >
         #{unitname,jdbcType=VARCHAR},
@@ -145,7 +145,7 @@
     update tunit
     <set >
       <if test="record.unitid != null" >
-        UnitID = #{record.unitid,jdbcType=INTEGER},
+        UnitID = #{record.unitid,jdbcType=VARCHAR},
       </if>
       <if test="record.unitname != null" >
         UnitName = #{record.unitname,jdbcType=VARCHAR},
@@ -163,7 +163,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update tunit
-    set UnitID = #{record.unitid,jdbcType=INTEGER},
+    set UnitID = #{record.unitid,jdbcType=VARCHAR},
       UnitName = #{record.unitname,jdbcType=VARCHAR},
       EngName = #{record.engname,jdbcType=VARCHAR},
       Memo = #{record.memo,jdbcType=VARCHAR}
@@ -184,13 +184,13 @@
         Memo = #{memo,jdbcType=VARCHAR},
       </if>
     </set>
-    where UnitID = #{unitid,jdbcType=INTEGER}
+    where UnitID = #{unitid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Tunit" >
     update tunit
     set UnitName = #{unitname,jdbcType=VARCHAR},
       EngName = #{engname,jdbcType=VARCHAR},
       Memo = #{memo,jdbcType=VARCHAR}
-    where UnitID = #{unitid,jdbcType=INTEGER}
+    where UnitID = #{unitid,jdbcType=VARCHAR}
   </update>
 </mapper>

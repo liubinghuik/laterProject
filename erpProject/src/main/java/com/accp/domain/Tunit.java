@@ -1,7 +1,7 @@
 package com.accp.domain;
 
 public class Tunit {
-    private Integer unitid;
+    private String unitid;
 
     private String unitname;
 
@@ -9,11 +9,11 @@ public class Tunit {
 
     private String memo;
 
-    public Integer getUnitid() {
+    public String getUnitid() {
         return unitid;
     }
 
-    public void setUnitid(Integer unitid) {
+    public void setUnitid(String unitid) {
         this.unitid = unitid;
     }
 
