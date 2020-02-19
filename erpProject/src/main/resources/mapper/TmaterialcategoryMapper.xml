@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.mapper.TmaterialcategoryMapper" >
   <resultMap id="BaseResultMap" type="com.accp.domain.Tmaterialcategory" >
-    <id column="ClassID" property="classid" jdbcType="INTEGER" />
+    <id column="ClassID" property="classid" jdbcType="VARCHAR" />
     <result column="ClassName" property="classname" jdbcType="VARCHAR" />
     <result column="EngName" property="engname" jdbcType="VARCHAR" />
     <result column="AccInventoryID" property="accinventoryid" jdbcType="VARCHAR" />
@@ -90,15 +90,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from tmaterialcategory
-    where ClassID = #{classid,jdbcType=INTEGER}
+    where ClassID = #{classid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tmaterialcategory
-    where ClassID = #{classid,jdbcType=INTEGER}
+    where ClassID = #{classid,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.accp.domain.TmaterialcategoryExample" >
     delete from tmaterialcategory
@@ -111,7 +111,7 @@
       AccInventoryID, AccSaleID, AccSaleCostID, 
       SendOutWareID, GiftExpenseID, OtherIncomeID, 
       OtherExpenseID, Memo)
-    values (#{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, #{engname,jdbcType=VARCHAR}, 
+    values (#{classid,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, #{engname,jdbcType=VARCHAR}, 
       #{accinventoryid,jdbcType=VARCHAR}, #{accsaleid,jdbcType=VARCHAR}, #{accsalecostid,jdbcType=VARCHAR}, 
       #{sendoutwareid,jdbcType=VARCHAR}, #{giftexpenseid,jdbcType=VARCHAR}, #{otherincomeid,jdbcType=VARCHAR}, 
       #{otherexpenseid,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
@@ -155,7 +155,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="classid != null" >
-        #{classid,jdbcType=INTEGER},
+        #{classid,jdbcType=VARCHAR},
       </if>
       <if test="classname != null" >
         #{classname,jdbcType=VARCHAR},
@@ -199,7 +199,7 @@
     update tmaterialcategory
     <set >
       <if test="record.classid != null" >
-        ClassID = #{record.classid,jdbcType=INTEGER},
+        ClassID = #{record.classid,jdbcType=VARCHAR},
       </if>
       <if test="record.classname != null" >
         ClassName = #{record.classname,jdbcType=VARCHAR},
@@ -238,7 +238,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update tmaterialcategory
-    set ClassID = #{record.classid,jdbcType=INTEGER},
+    set ClassID = #{record.classid,jdbcType=VARCHAR},
       ClassName = #{record.classname,jdbcType=VARCHAR},
       EngName = #{record.engname,jdbcType=VARCHAR},
       AccInventoryID = #{record.accinventoryid,jdbcType=VARCHAR},
@@ -287,7 +287,7 @@
         Memo = #{memo,jdbcType=VARCHAR},
       </if>
     </set>
-    where ClassID = #{classid,jdbcType=INTEGER}
+    where ClassID = #{classid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Tmaterialcategory" >
     update tmaterialcategory
@@ -301,6 +301,6 @@
       OtherIncomeID = #{otherincomeid,jdbcType=VARCHAR},
       OtherExpenseID = #{otherexpenseid,jdbcType=VARCHAR},
       Memo = #{memo,jdbcType=VARCHAR}
-    where ClassID = #{classid,jdbcType=INTEGER}
+    where ClassID = #{classid,jdbcType=VARCHAR}
   </update>
 </mapper>

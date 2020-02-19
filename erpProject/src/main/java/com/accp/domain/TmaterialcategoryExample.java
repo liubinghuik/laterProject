@@ -114,52 +114,62 @@ public class TmaterialcategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andClassidEqualTo(Integer value) {
+        public Criteria andClassidEqualTo(String value) {
             addCriterion("ClassID =", value, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidNotEqualTo(Integer value) {
+        public Criteria andClassidNotEqualTo(String value) {
             addCriterion("ClassID <>", value, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidGreaterThan(Integer value) {
+        public Criteria andClassidGreaterThan(String value) {
             addCriterion("ClassID >", value, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andClassidGreaterThanOrEqualTo(String value) {
             addCriterion("ClassID >=", value, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidLessThan(Integer value) {
+        public Criteria andClassidLessThan(String value) {
             addCriterion("ClassID <", value, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidLessThanOrEqualTo(Integer value) {
+        public Criteria andClassidLessThanOrEqualTo(String value) {
             addCriterion("ClassID <=", value, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidIn(List<Integer> values) {
+        public Criteria andClassidLike(String value) {
+            addCriterion("ClassID like", value, "classid");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassidNotLike(String value) {
+            addCriterion("ClassID not like", value, "classid");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassidIn(List<String> values) {
             addCriterion("ClassID in", values, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidNotIn(List<Integer> values) {
+        public Criteria andClassidNotIn(List<String> values) {
             addCriterion("ClassID not in", values, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidBetween(Integer value1, Integer value2) {
+        public Criteria andClassidBetween(String value1, String value2) {
             addCriterion("ClassID between", value1, value2, "classid");
             return (Criteria) this;
         }
 
-        public Criteria andClassidNotBetween(Integer value1, Integer value2) {
+        public Criteria andClassidNotBetween(String value1, String value2) {
             addCriterion("ClassID not between", value1, value2, "classid");
             return (Criteria) this;
         }
