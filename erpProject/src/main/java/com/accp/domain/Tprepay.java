@@ -52,6 +52,10 @@ public class Tprepay {
     private Double money;
     
     private List<Tprepaydetail> prepaydetails;
+    
+    private String vouchingmanName;
+    
+    private String auditmanName;
 
     public String getSname() {
 		return sname;
@@ -59,6 +63,22 @@ public class Tprepay {
 
 	public void setSname(String sname) {
 		this.sname = sname;
+	}
+
+	public String getVouchingmanName() {
+		return vouchingmanName;
+	}
+
+	public void setVouchingmanName(String vouchingmanName) {
+		this.vouchingmanName = vouchingmanName;
+	}
+
+	public String getAuditmanName() {
+		return auditmanName;
+	}
+
+	public void setAuditmanName(String auditmanName) {
+		this.auditmanName = auditmanName;
 	}
 
 	public Double getMoney() {
