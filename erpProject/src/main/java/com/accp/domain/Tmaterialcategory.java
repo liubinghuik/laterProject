@@ -1,7 +1,7 @@
 package com.accp.domain;
 
 public class Tmaterialcategory {
-    private Integer classid;
+    private String classid;
 
     private String classname;
 
@@ -23,11 +23,11 @@ public class Tmaterialcategory {
 
     private String memo;
 
-    public Integer getClassid() {
+    public String getClassid() {
         return classid;
     }
 
-    public void setClassid(Integer classid) {
+    public void setClassid(String classid) {
         this.classid = classid;
     }
 
