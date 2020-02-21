@@ -32,9 +32,10 @@
   </resultMap>
   <!-- 查询预付款列表 -->
   <select id="showPrepay" resultMap="BaseResultMapExtends">
-  	SELECT `tprepay`.`id`,`tprepay`.`date`,`tprepay`.`auditstate`,supplier.`fullName` sname,`tprepay`.`paymentamout1`+`tprepay`.`paymentamout2` money 
-	FROM `tprepay`,`supplier`
+  	SELECT `tprepay`.`id`,`tprepay`.`date`,`tprepay`.`auditstate`,supplier.`fullName` sname,SUM(tprepaydetail.`prepay`) money 
+	FROM `tprepay`,`supplier`,`tprepaydetail`
 	WHERE `tprepay`.`sid` = `supplier`.`sid`
+	AND `tprepay`.`id`=`tprepaydetail`.`pid`
 	AND `tprepay`.`auditstate` !=0
 	<if test="id != '' and id != null">
 	AND `tprepay`.`id` LIKE	CONCAT('%',#{id},'%')
@@ -48,6 +49,7 @@
 	<if test="endseachtime != '' and endseachtime != null ">
 		AND `tprepay`.`date` &lt;= #{endseachtime}
 	</if>
+	GROUP BY `tprepay`.`id`
 	ORDER BY id DESC
   </select>
   <sql id="Example_Where_Clause" >

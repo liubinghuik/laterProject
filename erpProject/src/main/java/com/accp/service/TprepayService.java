@@ -1,5 +1,6 @@
 package com.accp.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import com.accp.domain.Supplier;
 import com.accp.domain.Tpaymentprepay;
 import com.accp.domain.TpaymentprepayExample;
 import com.accp.domain.Tprepay;
+import com.accp.domain.TprepayExample;
 import com.accp.domain.Tprepaydetail;
 import com.accp.domain.TprepaydetailExample;
 import com.accp.mapper.EmployeeMapper;
@@ -35,6 +37,32 @@ public class TprepayService {
 	private SupplierMapper supplierMapper;
 	@Autowired
 	private TpaymentprepayMapper tpaymentprepayMapper;
+	/**
+	 * 自动生成单据
+	 * @param date
+	 * @return
+	 */
+	public String postId(String date) {
+		String[] dateStrs=date.split("-");
+		String id="";
+		for (String string : dateStrs) {
+			id+=string;
+		}
+		TprepayExample tprepayExample=new TprepayExample();
+		tprepayExample.createCriteria().andIdLike("%"+id+"%");
+		List<Tprepay> tprepays=tprepayMapper.selectByExample(tprepayExample);
+		if (tprepays!=null&&tprepays.size()>0) {
+			if (tprepays.size()<9) {
+				id+="0";
+				id+=(tprepays.size()+1);
+			}else {
+				id+=(tprepays.size()+1);
+			}
+		} else {
+			id+="01";
+		}
+		return id;
+	}
 	/**
 	 * 分页查询
 	 * @param pageNum 页码
@@ -88,6 +116,7 @@ public class TprepayService {
 		List<Tprepaydetail> tprepaydetails=tprepay.getPrepaydetails();
 		if (tprepaydetails!=null&&tprepaydetails.size()>0) {
 			for (Tprepaydetail tprepaydetail : tprepaydetails) {
+				tprepaydetail.setBalance(tprepaydetail.getPrepay());
 				tprepaydetailMapper.insertSelective(tprepaydetail);
 			}
 		}
