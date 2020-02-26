@@ -1,10 +1,16 @@
 package com.accp.domain;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Tprepay {
     private String id;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     private String sid;
@@ -20,7 +26,8 @@ public class Tprepay {
     private String currencyid;
 
     private Double discount;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date enddate;
 
     private Double exchangerate;
@@ -44,8 +51,69 @@ public class Tprepay {
     private Integer auditstate;
 
     private Integer audit;
+    
+    private String sname;
+    
+    private Double money;
+    
+    private List<Tprepaydetail> prepaydetails;
+    
+    private String vouchingmanName;
+    
+    private String auditmanName;
+    
+    private String departName;
 
-    public String getId() {
+    public String getDepartName() {
+		return departName;
+	}
+
+	public void setDepartName(String departName) {
+		this.departName = departName;
+	}
+
+	public String getSname() {
+		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+
+	public String getVouchingmanName() {
+		return vouchingmanName;
+	}
+
+	public void setVouchingmanName(String vouchingmanName) {
+		this.vouchingmanName = vouchingmanName;
+	}
+
+	public String getAuditmanName() {
+		return auditmanName;
+	}
+
+	public void setAuditmanName(String auditmanName) {
+		this.auditmanName = auditmanName;
+	}
+
+	public Double getMoney() {
+		return money;
+	}
+
+	public void setMoney(Double money) {
+		this.money = money;
+	}
+
+	public List<Tprepaydetail> getPrepaydetails() {
+		return prepaydetails;
+	}
+
+	public void setPrepaydetails(List<Tprepaydetail> prepaydetails) {
+		this.prepaydetails = prepaydetails;
+	}
+
+	public String getId() {
+
         return id;
     }
 
