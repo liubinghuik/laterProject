@@ -35,7 +35,7 @@
    SELECT `tprepay`.`id`,`tprepay`.`date`,`tprepay`.`auditstate`,supplier.`fullName` sname,SUM(tprepaydetail.`prepay`) money 
  FROM `tprepay`,`supplier`,`tprepaydetail`
  WHERE `tprepay`.`sid` = `supplier`.`sid`
-AND `tprepay`.`id`='tprepaydetail.pid'
+AND `tprepay`.`id`=`tprepaydetail`.`pid`
 AND tprepaydetail.`state` !=0
 AND tprepay.`auditstate` !=0
  <if test="id != '' and id != null">
@@ -47,9 +47,10 @@ AND tprepay.`auditstate` !=0
  <if test="startseachtime != '' and startseachtime != null">
   AND `tprepay`.`date` &gt;= #{startseachtime}
  </if>
- <if test="endseachtime != '' and endseachtime != null ">
+ <if test="endseachtime != '' and endseachtime != null">
   AND `tprepay`.`date` &lt;= #{endseachtime}
  </if>
+ GROUP BY `tprepay`.`id`
  ORDER BY id DESC
   </select>
   <sql id="Example_Where_Clause" >
