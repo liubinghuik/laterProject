@@ -1,5 +1,6 @@
 package com.accp.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.accp.domain.Department;
+import com.accp.domain.DepartmentExample;
 import com.accp.domain.Employee;
+import com.accp.domain.Purchaseorder;
+import com.accp.domain.PurchaseorderExample;
 import com.accp.domain.Supplier;
 import com.accp.domain.Tpaymentprepay;
 import com.accp.domain.TpaymentprepayExample;
@@ -15,7 +20,9 @@ import com.accp.domain.Tprepay;
 import com.accp.domain.TprepayExample;
 import com.accp.domain.Tprepaydetail;
 import com.accp.domain.TprepaydetailExample;
+import com.accp.mapper.DepartmentMapper;
 import com.accp.mapper.EmployeeMapper;
+import com.accp.mapper.PurchaseorderMapper;
 import com.accp.mapper.SupplierMapper;
 import com.accp.mapper.TpaymentprepayMapper;
 import com.accp.mapper.TprepayMapper;
@@ -37,8 +44,48 @@ public class TprepayService {
 	private SupplierMapper supplierMapper;
 	@Autowired
 	private TpaymentprepayMapper tpaymentprepayMapper;
+	@Autowired
+	private PurchaseorderMapper purchaseorderMapper;
+	@Autowired
+	private DepartmentMapper departmentMapper;
 	/**
-	 * 自动生成单据
+	 * 采购订单转预付款单
+	 * @param sid
+	 * @return
+	 */
+	public List<Tprepaydetail> postZD(String sid) {
+		//1.根据供应商编号查询对应的已审核未结案的采购订单
+		PurchaseorderExample purchaseorderExample=new PurchaseorderExample();
+		purchaseorderExample.createCriteria().andCustomeridEqualTo(sid).andAuditEqualTo(1).andBillstatusEqualTo(1);
+		List<Purchaseorder> purchaseorders=purchaseorderMapper.selectByExample(purchaseorderExample);
+		List<Purchaseorder> list=purchaseorderMapper.selectByExample(purchaseorderExample);
+		if (purchaseorders!=null&&purchaseorders.size()>=0) {
+			//2.筛选出未转单的采购订单
+			for (Purchaseorder purchaseorder : purchaseorders) {
+				TprepaydetailExample tprepaydetailExample=new TprepaydetailExample();
+				tprepaydetailExample.createCriteria().andSourcenoEqualTo(purchaseorder.getBillno());
+				List<Tprepaydetail> tprepaydetails=tprepaydetailMapper.selectByExample(tprepaydetailExample);
+				if(tprepaydetails!=null&&tprepaydetails.size()>0) {
+					list.remove(purchaseorder);
+				}
+			}
+		}else {
+			return null;
+		}
+		//3.进行转单操作
+		List<Tprepaydetail> tprepaydetails=new ArrayList<Tprepaydetail>();
+		if (list!=null&&list.size()>0) {
+			for (Purchaseorder purchaseorder : list) {
+				Tprepaydetail tprepaydetail=new Tprepaydetail();
+				tprepaydetail.setSourceno(purchaseorder.getBillno());
+				tprepaydetail.setSourcetype("采购订单");
+				tprepaydetails.add(tprepaydetail);
+			}
+		}
+		return tprepaydetails;
+	}
+	/**
+	 * 自动生成单据编号
 	 * @param date
 	 * @return
 	 */
@@ -96,6 +143,8 @@ public class TprepayService {
 		tprepaydetailExample.createCriteria().andPidEqualTo(id).andStateNotEqualTo(0);
 		List<Tprepaydetail> tprepaydetails=tprepaydetailMapper.selectByExample(tprepaydetailExample);
 		tprepay.setPrepaydetails(tprepaydetails);
+		Department department=departmentMapper.selectByPrimaryKey(tprepay.getDepartid());
+		tprepay.setDepartName(department.getDepartname());
 		Employee vouchingman =employeeMapper.selectByPrimaryKey(tprepay.getVouchingman());
 		if (tprepay.getAuditman()!=null) {
 			Employee auditman =employeeMapper.selectByPrimaryKey(tprepay.getAuditman());
@@ -112,11 +161,15 @@ public class TprepayService {
 	public int addTprepay(Tprepay tprepay,String vouchingman) {
 		int i=0;
 		tprepay.setVouchingman(vouchingman);
+		Employee employee=employeeMapper.selectByPrimaryKey(vouchingman);
+		tprepay.setDepartid(employee.getDepartid());
 		i=tprepayMapper.insertSelective(tprepay);
 		List<Tprepaydetail> tprepaydetails=tprepay.getPrepaydetails();
 		if (tprepaydetails!=null&&tprepaydetails.size()>0) {
 			for (Tprepaydetail tprepaydetail : tprepaydetails) {
 				tprepaydetail.setBalance(tprepaydetail.getPrepay());
+				tprepaydetail.setPid(tprepay.getId());
+				tprepaydetail.setState(1);
 				tprepaydetailMapper.insertSelective(tprepaydetail);
 			}
 		}
@@ -190,6 +243,8 @@ public class TprepayService {
 		TprepaydetailExample tprepaydetailExample=new TprepaydetailExample();
 		tprepaydetailExample.createCriteria().andPidEqualTo(tprepay.getId()).andStateNotEqualTo(0);
 		List<Tprepaydetail> tprepaydetails2=tprepaydetailMapper.selectByExample(tprepaydetailExample);
+		//第三方保存数据库信息
+		List<Tprepaydetail> list=tprepaydetailMapper.selectByExample(tprepaydetailExample);
 		//对比处理详表信息
 		//1.当数据库中没有数据时直接新增
 		if (tprepaydetails2==null||tprepaydetails2.size()==0) {
@@ -198,8 +253,6 @@ public class TprepayService {
 			}
 		}//2.当数据库中有数据时
 		else {
-			//第三方保存数据库信息
-			List<Tprepaydetail> list=tprepaydetails2;
 			//对比传入的数据和数据库的数据
 			for (Tprepaydetail tprepaydetail : tprepaydetails) {
 				//辅助判断
@@ -214,6 +267,9 @@ public class TprepayService {
 				}
 				//如果没有匹配数据就新增
 				if (!isExist) {
+					tprepaydetail.setBalance(tprepaydetail.getPrepay());
+					tprepaydetail.setState(1);
+					tprepaydetail.setPid(tprepay.getId());
 					tprepaydetailMapper.insertSelective(tprepaydetail);
 				}
 			}

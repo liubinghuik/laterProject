@@ -1,6 +1,7 @@
 package com.accp.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.domain.Employee;
 import com.accp.domain.Tprepay;
+import com.accp.domain.Tprepaydetail;
 import com.accp.service.TprepayService;
 import com.github.pagehelper.PageInfo;
 
@@ -99,5 +101,14 @@ public class TpreparController {
 	@PostMapping("/updateTprepay")
 	public int updateTprepay(@RequestBody Tprepay tprepay) {
 		return tprepayService.updateTprepay(tprepay);
+	}
+	/**
+	 * 采购订单转预付款单
+	 * @param sid
+	 * @return
+	 */
+	@GetMapping("/postZD")
+	public List<Tprepaydetail> postZD(String sid) {
+		return tprepayService.postZD(sid);
 	}
 }

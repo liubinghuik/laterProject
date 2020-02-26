@@ -27,7 +27,8 @@ public class Tprepay {
     private String currencyid;
 
     private Double discount;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date enddate;
 
     private Double exchangerate;
@@ -61,8 +62,18 @@ public class Tprepay {
     private String vouchingmanName;
     
     private String auditmanName;
+    
+    private String departName;
 
-    public String getSname() {
+    public String getDepartName() {
+		return departName;
+	}
+
+	public void setDepartName(String departName) {
+		this.departName = departName;
+	}
+
+	public String getSname() {
 		return sname;
 	}
 

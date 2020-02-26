@@ -37,6 +37,7 @@
 	WHERE `tprepay`.`sid` = `supplier`.`sid`
 	AND `tprepay`.`id`=`tprepaydetail`.`pid`
 	AND `tprepay`.`auditstate` !=0
+	AND `tprepaydetail`.`state` !=0
 	<if test="id != '' and id != null">
 	AND `tprepay`.`id` LIKE	CONCAT('%',#{id},'%')
 	</if>
