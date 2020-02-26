@@ -1,42 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.accp.mapper.SalestockMapper">
-  <resultMap id="BaseResultMap" type="com.accp.domain.Salestock">
-    <id column="xschukuid" jdbcType="INTEGER" property="xschukuid" />
-    <result column="xschukuNo" jdbcType="VARCHAR" property="xschukuno" />
-    <result column="customerID" jdbcType="VARCHAR" property="customerid" />
-    <result column="danjuDate" jdbcType="DATE" property="danjudate" />
-    <result column="xschukulx" jdbcType="VARCHAR" property="xschukulx" />
-    <result column="CurrencyID" jdbcType="VARCHAR" property="currencyid" />
-    <result column="danjiahsif" jdbcType="INTEGER" property="danjiahsif" />
-    <result column="WareHouseID" jdbcType="VARCHAR" property="warehouseid" />
-    <result column="gwmy" jdbcType="VARCHAR" property="gwmy" />
-    <result column="pzbm" jdbcType="VARCHAR" property="pzbm" />
-    <result column="beizu" jdbcType="VARCHAR" property="beizu" />
-    <result column="DepartID" jdbcType="VARCHAR" property="departid" />
-    <result column="Maker" jdbcType="VARCHAR" property="maker" />
-    <result column="Permitter" jdbcType="VARCHAR" property="permitter" />
-    <result column="fuhestates" jdbcType="VARCHAR" property="fuhestates" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.mapper.SalestockMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Salestock" >
+    <id column="xschukuid" property="xschukuid" jdbcType="INTEGER" />
+    <result column="xschukuNo" property="xschukuno" jdbcType="VARCHAR" />
+    <result column="customerID" property="customerid" jdbcType="VARCHAR" />
+    <result column="danjuDate" property="danjudate" jdbcType="DATE" />
+    <result column="xschukulx" property="xschukulx" jdbcType="VARCHAR" />
+    <result column="CurrencyID" property="currencyid" jdbcType="VARCHAR" />
+    <result column="danjiahsif" property="danjiahsif" jdbcType="INTEGER" />
+    <result column="WareHouseID" property="warehouseid" jdbcType="VARCHAR" />
+    <result column="gwmy" property="gwmy" jdbcType="VARCHAR" />
+    <result column="pzbm" property="pzbm" jdbcType="VARCHAR" />
+    <result column="beizu" property="beizu" jdbcType="VARCHAR" />
+    <result column="DepartID" property="departid" jdbcType="VARCHAR" />
+    <result column="Maker" property="maker" jdbcType="VARCHAR" />
+    <result column="Permitter" property="permitter" jdbcType="VARCHAR" />
+    <result column="fuhestates" property="fuhestates" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -47,25 +47,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -76,41 +76,41 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     xschukuid, xschukuNo, customerID, danjuDate, xschukulx, CurrencyID, danjiahsif, WareHouseID, 
     gwmy, pzbm, beizu, DepartID, Maker, Permitter, fuhestates
   </sql>
-  <select id="selectByExample" parameterType="com.accp.domain.SalestockExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.SalestockExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from salestock
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from salestock
     where xschukuid = #{xschukuid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from salestock
     where xschukuid = #{xschukuid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.accp.domain.SalestockExample">
+  <delete id="deleteByExample" parameterType="com.accp.domain.SalestockExample" >
     delete from salestock
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.accp.domain.Salestock">
+  <insert id="insert" parameterType="com.accp.domain.Salestock" >
     insert into salestock (xschukuid, xschukuNo, customerID, 
       danjuDate, xschukulx, CurrencyID, 
       danjiahsif, WareHouseID, gwmy, 
@@ -124,163 +124,163 @@
       #{maker,jdbcType=VARCHAR}, #{permitter,jdbcType=VARCHAR}, #{fuhestates,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.accp.domain.Salestock">
+  <insert id="insertSelective" parameterType="com.accp.domain.Salestock" >
     insert into salestock
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="xschukuid != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xschukuid != null" >
         xschukuid,
       </if>
-      <if test="xschukuno != null">
+      <if test="xschukuno != null" >
         xschukuNo,
       </if>
-      <if test="customerid != null">
+      <if test="customerid != null" >
         customerID,
       </if>
-      <if test="danjudate != null">
+      <if test="danjudate != null" >
         danjuDate,
       </if>
-      <if test="xschukulx != null">
+      <if test="xschukulx != null" >
         xschukulx,
       </if>
-      <if test="currencyid != null">
+      <if test="currencyid != null" >
         CurrencyID,
       </if>
-      <if test="danjiahsif != null">
+      <if test="danjiahsif != null" >
         danjiahsif,
       </if>
-      <if test="warehouseid != null">
+      <if test="warehouseid != null" >
         WareHouseID,
       </if>
-      <if test="gwmy != null">
+      <if test="gwmy != null" >
         gwmy,
       </if>
-      <if test="pzbm != null">
+      <if test="pzbm != null" >
         pzbm,
       </if>
-      <if test="beizu != null">
+      <if test="beizu != null" >
         beizu,
       </if>
-      <if test="departid != null">
+      <if test="departid != null" >
         DepartID,
       </if>
-      <if test="maker != null">
+      <if test="maker != null" >
         Maker,
       </if>
-      <if test="permitter != null">
+      <if test="permitter != null" >
         Permitter,
       </if>
-      <if test="fuhestates != null">
+      <if test="fuhestates != null" >
         fuhestates,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="xschukuid != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xschukuid != null" >
         #{xschukuid,jdbcType=INTEGER},
       </if>
-      <if test="xschukuno != null">
+      <if test="xschukuno != null" >
         #{xschukuno,jdbcType=VARCHAR},
       </if>
-      <if test="customerid != null">
+      <if test="customerid != null" >
         #{customerid,jdbcType=VARCHAR},
       </if>
-      <if test="danjudate != null">
+      <if test="danjudate != null" >
         #{danjudate,jdbcType=DATE},
       </if>
-      <if test="xschukulx != null">
+      <if test="xschukulx != null" >
         #{xschukulx,jdbcType=VARCHAR},
       </if>
-      <if test="currencyid != null">
+      <if test="currencyid != null" >
         #{currencyid,jdbcType=VARCHAR},
       </if>
-      <if test="danjiahsif != null">
+      <if test="danjiahsif != null" >
         #{danjiahsif,jdbcType=INTEGER},
       </if>
-      <if test="warehouseid != null">
+      <if test="warehouseid != null" >
         #{warehouseid,jdbcType=VARCHAR},
       </if>
-      <if test="gwmy != null">
+      <if test="gwmy != null" >
         #{gwmy,jdbcType=VARCHAR},
       </if>
-      <if test="pzbm != null">
+      <if test="pzbm != null" >
         #{pzbm,jdbcType=VARCHAR},
       </if>
-      <if test="beizu != null">
+      <if test="beizu != null" >
         #{beizu,jdbcType=VARCHAR},
       </if>
-      <if test="departid != null">
+      <if test="departid != null" >
         #{departid,jdbcType=VARCHAR},
       </if>
-      <if test="maker != null">
+      <if test="maker != null" >
         #{maker,jdbcType=VARCHAR},
       </if>
-      <if test="permitter != null">
+      <if test="permitter != null" >
         #{permitter,jdbcType=VARCHAR},
       </if>
-      <if test="fuhestates != null">
+      <if test="fuhestates != null" >
         #{fuhestates,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.accp.domain.SalestockExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.accp.domain.SalestockExample" resultType="java.lang.Integer" >
     select count(*) from salestock
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update salestock
-    <set>
-      <if test="record.xschukuid != null">
+    <set >
+      <if test="record.xschukuid != null" >
         xschukuid = #{record.xschukuid,jdbcType=INTEGER},
       </if>
-      <if test="record.xschukuno != null">
+      <if test="record.xschukuno != null" >
         xschukuNo = #{record.xschukuno,jdbcType=VARCHAR},
       </if>
-      <if test="record.customerid != null">
+      <if test="record.customerid != null" >
         customerID = #{record.customerid,jdbcType=VARCHAR},
       </if>
-      <if test="record.danjudate != null">
+      <if test="record.danjudate != null" >
         danjuDate = #{record.danjudate,jdbcType=DATE},
       </if>
-      <if test="record.xschukulx != null">
+      <if test="record.xschukulx != null" >
         xschukulx = #{record.xschukulx,jdbcType=VARCHAR},
       </if>
-      <if test="record.currencyid != null">
+      <if test="record.currencyid != null" >
         CurrencyID = #{record.currencyid,jdbcType=VARCHAR},
       </if>
-      <if test="record.danjiahsif != null">
+      <if test="record.danjiahsif != null" >
         danjiahsif = #{record.danjiahsif,jdbcType=INTEGER},
       </if>
-      <if test="record.warehouseid != null">
+      <if test="record.warehouseid != null" >
         WareHouseID = #{record.warehouseid,jdbcType=VARCHAR},
       </if>
-      <if test="record.gwmy != null">
+      <if test="record.gwmy != null" >
         gwmy = #{record.gwmy,jdbcType=VARCHAR},
       </if>
-      <if test="record.pzbm != null">
+      <if test="record.pzbm != null" >
         pzbm = #{record.pzbm,jdbcType=VARCHAR},
       </if>
-      <if test="record.beizu != null">
+      <if test="record.beizu != null" >
         beizu = #{record.beizu,jdbcType=VARCHAR},
       </if>
-      <if test="record.departid != null">
+      <if test="record.departid != null" >
         DepartID = #{record.departid,jdbcType=VARCHAR},
       </if>
-      <if test="record.maker != null">
+      <if test="record.maker != null" >
         Maker = #{record.maker,jdbcType=VARCHAR},
       </if>
-      <if test="record.permitter != null">
+      <if test="record.permitter != null" >
         Permitter = #{record.permitter,jdbcType=VARCHAR},
       </if>
-      <if test="record.fuhestates != null">
+      <if test="record.fuhestates != null" >
         fuhestates = #{record.fuhestates,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update salestock
     set xschukuid = #{record.xschukuid,jdbcType=INTEGER},
       xschukuNo = #{record.xschukuno,jdbcType=VARCHAR},
@@ -297,425 +297,59 @@
       Maker = #{record.maker,jdbcType=VARCHAR},
       Permitter = #{record.permitter,jdbcType=VARCHAR},
       fuhestates = #{record.fuhestates,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Salestock">
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Salestock" >
     update salestock
-    <set>
-      <if test="xschukuno != null">
+    <set >
+      <if test="xschukuno != null" >
         xschukuNo = #{xschukuno,jdbcType=VARCHAR},
       </if>
-      <if test="customerid != null">
+      <if test="customerid != null" >
         customerID = #{customerid,jdbcType=VARCHAR},
       </if>
-      <if test="danjudate != null">
+      <if test="danjudate != null" >
         danjuDate = #{danjudate,jdbcType=DATE},
       </if>
-      <if test="xschukulx != null">
+      <if test="xschukulx != null" >
         xschukulx = #{xschukulx,jdbcType=VARCHAR},
       </if>
-      <if test="currencyid != null">
+      <if test="currencyid != null" >
         CurrencyID = #{currencyid,jdbcType=VARCHAR},
       </if>
-      <if test="danjiahsif != null">
+      <if test="danjiahsif != null" >
         danjiahsif = #{danjiahsif,jdbcType=INTEGER},
       </if>
-      <if test="warehouseid != null">
+      <if test="warehouseid != null" >
         WareHouseID = #{warehouseid,jdbcType=VARCHAR},
       </if>
-      <if test="gwmy != null">
+      <if test="gwmy != null" >
         gwmy = #{gwmy,jdbcType=VARCHAR},
       </if>
-      <if test="pzbm != null">
+      <if test="pzbm != null" >
         pzbm = #{pzbm,jdbcType=VARCHAR},
       </if>
-      <if test="beizu != null">
+      <if test="beizu != null" >
         beizu = #{beizu,jdbcType=VARCHAR},
       </if>
-      <if test="departid != null">
+      <if test="departid != null" >
         DepartID = #{departid,jdbcType=VARCHAR},
       </if>
-      <if test="maker != null">
+      <if test="maker != null" >
         Maker = #{maker,jdbcType=VARCHAR},
       </if>
-      <if test="permitter != null">
+      <if test="permitter != null" >
         Permitter = #{permitter,jdbcType=VARCHAR},
       </if>
-      <if test="fuhestates != null">
+      <if test="fuhestates != null" >
         fuhestates = #{fuhestates,jdbcType=VARCHAR},
       </if>
     </set>
     where xschukuid = #{xschukuid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Salestock">
-    update salestock
-    set xschukuNo = #{xschukuno,jdbcType=VARCHAR},
-      customerID = #{customerid,jdbcType=VARCHAR},
-      danjuDate = #{danjudate,jdbcType=DATE},
-      xschukulx = #{xschukulx,jdbcType=VARCHAR},
-      CurrencyID = #{currencyid,jdbcType=VARCHAR},
-      danjiahsif = #{danjiahsif,jdbcType=INTEGER},
-      WareHouseID = #{warehouseid,jdbcType=VARCHAR},
-      gwmy = #{gwmy,jdbcType=VARCHAR},
-      pzbm = #{pzbm,jdbcType=VARCHAR},
-      beizu = #{beizu,jdbcType=VARCHAR},
-      DepartID = #{departid,jdbcType=VARCHAR},
-      Maker = #{maker,jdbcType=VARCHAR},
-      Permitter = #{permitter,jdbcType=VARCHAR},
-      fuhestates = #{fuhestates,jdbcType=VARCHAR}
-    where xschukuid = #{xschukuid,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.accp.domain.Salestock">
-    <id column="xschukuid" jdbcType="INTEGER" property="xschukuid" />
-    <result column="xschukuNo" jdbcType="VARCHAR" property="xschukuno" />
-    <result column="customerID" jdbcType="VARCHAR" property="customerid" />
-    <result column="danjuDate" jdbcType="DATE" property="danjudate" />
-    <result column="xschukulx" jdbcType="VARCHAR" property="xschukulx" />
-    <result column="CurrencyID" jdbcType="VARCHAR" property="currencyid" />
-    <result column="danjiahsif" jdbcType="INTEGER" property="danjiahsif" />
-    <result column="WareHouseID" jdbcType="VARCHAR" property="warehouseid" />
-    <result column="gwmy" jdbcType="VARCHAR" property="gwmy" />
-    <result column="pzbm" jdbcType="VARCHAR" property="pzbm" />
-    <result column="beizu" jdbcType="VARCHAR" property="beizu" />
-    <result column="DepartID" jdbcType="VARCHAR" property="departid" />
-    <result column="Maker" jdbcType="VARCHAR" property="maker" />
-    <result column="Permitter" jdbcType="VARCHAR" property="permitter" />
-    <result column="fuhestates" jdbcType="VARCHAR" property="fuhestates" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    xschukuid, xschukuNo, customerID, danjuDate, xschukulx, CurrencyID, danjiahsif, WareHouseID, 
-    gwmy, pzbm, beizu, DepartID, Maker, Permitter, fuhestates
-  </sql>
-  <select id="selectByExample" parameterType="com.accp.domain.SalestockExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from salestock
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from salestock
-    where xschukuid = #{xschukuid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from salestock
-    where xschukuid = #{xschukuid,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.accp.domain.SalestockExample">
-    delete from salestock
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.accp.domain.Salestock">
-    insert into salestock (xschukuid, xschukuNo, customerID, 
-      danjuDate, xschukulx, CurrencyID, 
-      danjiahsif, WareHouseID, gwmy, 
-      pzbm, beizu, DepartID, 
-      Maker, Permitter, fuhestates
-      )
-    values (#{xschukuid,jdbcType=INTEGER}, #{xschukuno,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
-      #{danjudate,jdbcType=DATE}, #{xschukulx,jdbcType=VARCHAR}, #{currencyid,jdbcType=VARCHAR}, 
-      #{danjiahsif,jdbcType=INTEGER}, #{warehouseid,jdbcType=VARCHAR}, #{gwmy,jdbcType=VARCHAR}, 
-      #{pzbm,jdbcType=VARCHAR}, #{beizu,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR}, 
-      #{maker,jdbcType=VARCHAR}, #{permitter,jdbcType=VARCHAR}, #{fuhestates,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.accp.domain.Salestock">
-    insert into salestock
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="xschukuid != null">
-        xschukuid,
-      </if>
-      <if test="xschukuno != null">
-        xschukuNo,
-      </if>
-      <if test="customerid != null">
-        customerID,
-      </if>
-      <if test="danjudate != null">
-        danjuDate,
-      </if>
-      <if test="xschukulx != null">
-        xschukulx,
-      </if>
-      <if test="currencyid != null">
-        CurrencyID,
-      </if>
-      <if test="danjiahsif != null">
-        danjiahsif,
-      </if>
-      <if test="warehouseid != null">
-        WareHouseID,
-      </if>
-      <if test="gwmy != null">
-        gwmy,
-      </if>
-      <if test="pzbm != null">
-        pzbm,
-      </if>
-      <if test="beizu != null">
-        beizu,
-      </if>
-      <if test="departid != null">
-        DepartID,
-      </if>
-      <if test="maker != null">
-        Maker,
-      </if>
-      <if test="permitter != null">
-        Permitter,
-      </if>
-      <if test="fuhestates != null">
-        fuhestates,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="xschukuid != null">
-        #{xschukuid,jdbcType=INTEGER},
-      </if>
-      <if test="xschukuno != null">
-        #{xschukuno,jdbcType=VARCHAR},
-      </if>
-      <if test="customerid != null">
-        #{customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="danjudate != null">
-        #{danjudate,jdbcType=DATE},
-      </if>
-      <if test="xschukulx != null">
-        #{xschukulx,jdbcType=VARCHAR},
-      </if>
-      <if test="currencyid != null">
-        #{currencyid,jdbcType=VARCHAR},
-      </if>
-      <if test="danjiahsif != null">
-        #{danjiahsif,jdbcType=INTEGER},
-      </if>
-      <if test="warehouseid != null">
-        #{warehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="gwmy != null">
-        #{gwmy,jdbcType=VARCHAR},
-      </if>
-      <if test="pzbm != null">
-        #{pzbm,jdbcType=VARCHAR},
-      </if>
-      <if test="beizu != null">
-        #{beizu,jdbcType=VARCHAR},
-      </if>
-      <if test="departid != null">
-        #{departid,jdbcType=VARCHAR},
-      </if>
-      <if test="maker != null">
-        #{maker,jdbcType=VARCHAR},
-      </if>
-      <if test="permitter != null">
-        #{permitter,jdbcType=VARCHAR},
-      </if>
-      <if test="fuhestates != null">
-        #{fuhestates,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.accp.domain.SalestockExample" resultType="java.lang.Integer">
-    select count(*) from salestock
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update salestock
-    <set>
-      <if test="record.xschukuid != null">
-        xschukuid = #{record.xschukuid,jdbcType=INTEGER},
-      </if>
-      <if test="record.xschukuno != null">
-        xschukuNo = #{record.xschukuno,jdbcType=VARCHAR},
-      </if>
-      <if test="record.customerid != null">
-        customerID = #{record.customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.danjudate != null">
-        danjuDate = #{record.danjudate,jdbcType=DATE},
-      </if>
-      <if test="record.xschukulx != null">
-        xschukulx = #{record.xschukulx,jdbcType=VARCHAR},
-      </if>
-      <if test="record.currencyid != null">
-        CurrencyID = #{record.currencyid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.danjiahsif != null">
-        danjiahsif = #{record.danjiahsif,jdbcType=INTEGER},
-      </if>
-      <if test="record.warehouseid != null">
-        WareHouseID = #{record.warehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gwmy != null">
-        gwmy = #{record.gwmy,jdbcType=VARCHAR},
-      </if>
-      <if test="record.pzbm != null">
-        pzbm = #{record.pzbm,jdbcType=VARCHAR},
-      </if>
-      <if test="record.beizu != null">
-        beizu = #{record.beizu,jdbcType=VARCHAR},
-      </if>
-      <if test="record.departid != null">
-        DepartID = #{record.departid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.maker != null">
-        Maker = #{record.maker,jdbcType=VARCHAR},
-      </if>
-      <if test="record.permitter != null">
-        Permitter = #{record.permitter,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fuhestates != null">
-        fuhestates = #{record.fuhestates,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update salestock
-    set xschukuid = #{record.xschukuid,jdbcType=INTEGER},
-      xschukuNo = #{record.xschukuno,jdbcType=VARCHAR},
-      customerID = #{record.customerid,jdbcType=VARCHAR},
-      danjuDate = #{record.danjudate,jdbcType=DATE},
-      xschukulx = #{record.xschukulx,jdbcType=VARCHAR},
-      CurrencyID = #{record.currencyid,jdbcType=VARCHAR},
-      danjiahsif = #{record.danjiahsif,jdbcType=INTEGER},
-      WareHouseID = #{record.warehouseid,jdbcType=VARCHAR},
-      gwmy = #{record.gwmy,jdbcType=VARCHAR},
-      pzbm = #{record.pzbm,jdbcType=VARCHAR},
-      beizu = #{record.beizu,jdbcType=VARCHAR},
-      DepartID = #{record.departid,jdbcType=VARCHAR},
-      Maker = #{record.maker,jdbcType=VARCHAR},
-      Permitter = #{record.permitter,jdbcType=VARCHAR},
-      fuhestates = #{record.fuhestates,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Salestock">
-    update salestock
-    <set>
-      <if test="xschukuno != null">
-        xschukuNo = #{xschukuno,jdbcType=VARCHAR},
-      </if>
-      <if test="customerid != null">
-        customerID = #{customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="danjudate != null">
-        danjuDate = #{danjudate,jdbcType=DATE},
-      </if>
-      <if test="xschukulx != null">
-        xschukulx = #{xschukulx,jdbcType=VARCHAR},
-      </if>
-      <if test="currencyid != null">
-        CurrencyID = #{currencyid,jdbcType=VARCHAR},
-      </if>
-      <if test="danjiahsif != null">
-        danjiahsif = #{danjiahsif,jdbcType=INTEGER},
-      </if>
-      <if test="warehouseid != null">
-        WareHouseID = #{warehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="gwmy != null">
-        gwmy = #{gwmy,jdbcType=VARCHAR},
-      </if>
-      <if test="pzbm != null">
-        pzbm = #{pzbm,jdbcType=VARCHAR},
-      </if>
-      <if test="beizu != null">
-        beizu = #{beizu,jdbcType=VARCHAR},
-      </if>
-      <if test="departid != null">
-        DepartID = #{departid,jdbcType=VARCHAR},
-      </if>
-      <if test="maker != null">
-        Maker = #{maker,jdbcType=VARCHAR},
-      </if>
-      <if test="permitter != null">
-        Permitter = #{permitter,jdbcType=VARCHAR},
-      </if>
-      <if test="fuhestates != null">
-        fuhestates = #{fuhestates,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where xschukuid = #{xschukuid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Salestock">
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Salestock" >
     update salestock
     set xschukuNo = #{xschukuno,jdbcType=VARCHAR},
       customerID = #{customerid,jdbcType=VARCHAR},
