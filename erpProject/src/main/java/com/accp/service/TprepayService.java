@@ -150,7 +150,7 @@ public class TprepayService {
 			Employee auditman =employeeMapper.selectByPrimaryKey(tprepay.getAuditman());
 			tprepay.setAuditmanName(auditman.getName());			
 		}
-		tprepay.setVouchingmanName(vouchingman.getName());
+		tprepay.setVouchingman(vouchingman.getName());
 		return tprepay;
 	}
 	/**
