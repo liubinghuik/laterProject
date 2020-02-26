@@ -1,45 +1,45 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.accp.mapper.TpurchasereceiptMapper" >
-  <resultMap id="BaseResultMap" type="com.accp.domain.Tpurchasereceipt" >
-    <result column="BillNo" property="billno" jdbcType="VARCHAR" />
-    <result column="BillDate" property="billdate" jdbcType="DATE" />
-    <result column="CurrID" property="currid" jdbcType="INTEGER" />
-    <result column="ExchRate" property="exchrate" jdbcType="DOUBLE" />
-    <result column="HasForeignTrade" property="hasforeigntrade" jdbcType="VARCHAR" />
-    <result column="CustID" property="custid" jdbcType="INTEGER" />
-    <result column="AddressID" property="addressid" jdbcType="VARCHAR" />
-    <result column="SaleClassID" property="saleclassid" jdbcType="VARCHAR" />
-    <result column="PriceOfTax" property="priceoftax" jdbcType="INTEGER" />
-    <result column="WareID" property="wareid" jdbcType="INTEGER" />
-    <result column="VoucherNO" property="voucherno" jdbcType="VARCHAR" />
-    <result column="SalesName" property="salesname" jdbcType="VARCHAR" />
-    <result column="DepartID" property="departid" jdbcType="INTEGER" />
-    <result column="Maker" property="maker" jdbcType="VARCHAR" />
-    <result column="Permitter" property="permitter" jdbcType="VARCHAR" />
-    <result column="ProjectID" property="projectid" jdbcType="INTEGER" />
-    <result column="Remark" property="remark" jdbcType="VARCHAR" />
-    <result column="Audit" property="audit" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.mapper.TpurchasereceiptMapper">
+  <resultMap id="BaseResultMap" type="com.accp.domain.Tpurchasereceipt">
+    <result column="BillNo" jdbcType="VARCHAR" property="billno" />
+    <result column="BillDate" jdbcType="DATE" property="billdate" />
+    <result column="CurrID" jdbcType="INTEGER" property="currid" />
+    <result column="ExchRate" jdbcType="DOUBLE" property="exchrate" />
+    <result column="HasForeignTrade" jdbcType="VARCHAR" property="hasforeigntrade" />
+    <result column="CustID" jdbcType="INTEGER" property="custid" />
+    <result column="AddressID" jdbcType="VARCHAR" property="addressid" />
+    <result column="SaleClassID" jdbcType="VARCHAR" property="saleclassid" />
+    <result column="PriceOfTax" jdbcType="INTEGER" property="priceoftax" />
+    <result column="WareID" jdbcType="INTEGER" property="wareid" />
+    <result column="VoucherNO" jdbcType="VARCHAR" property="voucherno" />
+    <result column="SalesName" jdbcType="VARCHAR" property="salesname" />
+    <result column="DepartID" jdbcType="INTEGER" property="departid" />
+    <result column="Maker" jdbcType="VARCHAR" property="maker" />
+    <result column="Permitter" jdbcType="VARCHAR" property="permitter" />
+    <result column="ProjectID" jdbcType="INTEGER" property="projectid" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Audit" jdbcType="INTEGER" property="audit" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -50,25 +50,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -79,32 +79,32 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     BillNo, BillDate, CurrID, ExchRate, HasForeignTrade, CustID, AddressID, SaleClassID, 
     PriceOfTax, WareID, VoucherNO, SalesName, DepartID, Maker, Permitter, ProjectID, 
     Remark, Audit
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.TpurchasereceiptExample" >
+  <select id="selectByExample" parameterType="com.accp.domain.TpurchasereceiptExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
     from tpurchasereceipt
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.accp.domain.TpurchasereceiptExample" >
+  <delete id="deleteByExample" parameterType="com.accp.domain.TpurchasereceiptExample">
     delete from tpurchasereceipt
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.accp.domain.Tpurchasereceipt" >
+  <insert id="insert" parameterType="com.accp.domain.Tpurchasereceipt">
     insert into tpurchasereceipt (BillNo, BillDate, CurrID, 
       ExchRate, HasForeignTrade, CustID, 
       AddressID, SaleClassID, PriceOfTax, 
@@ -120,190 +120,190 @@
       #{projectid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{audit,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.accp.domain.Tpurchasereceipt" >
+  <insert id="insertSelective" parameterType="com.accp.domain.Tpurchasereceipt">
     insert into tpurchasereceipt
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="billno != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billno != null">
         BillNo,
       </if>
-      <if test="billdate != null" >
+      <if test="billdate != null">
         BillDate,
       </if>
-      <if test="currid != null" >
+      <if test="currid != null">
         CurrID,
       </if>
-      <if test="exchrate != null" >
+      <if test="exchrate != null">
         ExchRate,
       </if>
-      <if test="hasforeigntrade != null" >
+      <if test="hasforeigntrade != null">
         HasForeignTrade,
       </if>
-      <if test="custid != null" >
+      <if test="custid != null">
         CustID,
       </if>
-      <if test="addressid != null" >
+      <if test="addressid != null">
         AddressID,
       </if>
-      <if test="saleclassid != null" >
+      <if test="saleclassid != null">
         SaleClassID,
       </if>
-      <if test="priceoftax != null" >
+      <if test="priceoftax != null">
         PriceOfTax,
       </if>
-      <if test="wareid != null" >
+      <if test="wareid != null">
         WareID,
       </if>
-      <if test="voucherno != null" >
+      <if test="voucherno != null">
         VoucherNO,
       </if>
-      <if test="salesname != null" >
+      <if test="salesname != null">
         SalesName,
       </if>
-      <if test="departid != null" >
+      <if test="departid != null">
         DepartID,
       </if>
-      <if test="maker != null" >
+      <if test="maker != null">
         Maker,
       </if>
-      <if test="permitter != null" >
+      <if test="permitter != null">
         Permitter,
       </if>
-      <if test="projectid != null" >
+      <if test="projectid != null">
         ProjectID,
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         Remark,
       </if>
-      <if test="audit != null" >
+      <if test="audit != null">
         Audit,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="billno != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billno != null">
         #{billno,jdbcType=VARCHAR},
       </if>
-      <if test="billdate != null" >
+      <if test="billdate != null">
         #{billdate,jdbcType=DATE},
       </if>
-      <if test="currid != null" >
+      <if test="currid != null">
         #{currid,jdbcType=INTEGER},
       </if>
-      <if test="exchrate != null" >
+      <if test="exchrate != null">
         #{exchrate,jdbcType=DOUBLE},
       </if>
-      <if test="hasforeigntrade != null" >
+      <if test="hasforeigntrade != null">
         #{hasforeigntrade,jdbcType=VARCHAR},
       </if>
-      <if test="custid != null" >
+      <if test="custid != null">
         #{custid,jdbcType=INTEGER},
       </if>
-      <if test="addressid != null" >
+      <if test="addressid != null">
         #{addressid,jdbcType=VARCHAR},
       </if>
-      <if test="saleclassid != null" >
+      <if test="saleclassid != null">
         #{saleclassid,jdbcType=VARCHAR},
       </if>
-      <if test="priceoftax != null" >
+      <if test="priceoftax != null">
         #{priceoftax,jdbcType=INTEGER},
       </if>
-      <if test="wareid != null" >
+      <if test="wareid != null">
         #{wareid,jdbcType=INTEGER},
       </if>
-      <if test="voucherno != null" >
+      <if test="voucherno != null">
         #{voucherno,jdbcType=VARCHAR},
       </if>
-      <if test="salesname != null" >
+      <if test="salesname != null">
         #{salesname,jdbcType=VARCHAR},
       </if>
-      <if test="departid != null" >
+      <if test="departid != null">
         #{departid,jdbcType=INTEGER},
       </if>
-      <if test="maker != null" >
+      <if test="maker != null">
         #{maker,jdbcType=VARCHAR},
       </if>
-      <if test="permitter != null" >
+      <if test="permitter != null">
         #{permitter,jdbcType=VARCHAR},
       </if>
-      <if test="projectid != null" >
+      <if test="projectid != null">
         #{projectid,jdbcType=INTEGER},
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="audit != null" >
+      <if test="audit != null">
         #{audit,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.accp.domain.TpurchasereceiptExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.accp.domain.TpurchasereceiptExample" resultType="java.lang.Integer">
     select count(*) from tpurchasereceipt
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update tpurchasereceipt
-    <set >
-      <if test="record.billno != null" >
+    <set>
+      <if test="record.billno != null">
         BillNo = #{record.billno,jdbcType=VARCHAR},
       </if>
-      <if test="record.billdate != null" >
+      <if test="record.billdate != null">
         BillDate = #{record.billdate,jdbcType=DATE},
       </if>
-      <if test="record.currid != null" >
+      <if test="record.currid != null">
         CurrID = #{record.currid,jdbcType=INTEGER},
       </if>
-      <if test="record.exchrate != null" >
+      <if test="record.exchrate != null">
         ExchRate = #{record.exchrate,jdbcType=DOUBLE},
       </if>
-      <if test="record.hasforeigntrade != null" >
+      <if test="record.hasforeigntrade != null">
         HasForeignTrade = #{record.hasforeigntrade,jdbcType=VARCHAR},
       </if>
-      <if test="record.custid != null" >
+      <if test="record.custid != null">
         CustID = #{record.custid,jdbcType=INTEGER},
       </if>
-      <if test="record.addressid != null" >
+      <if test="record.addressid != null">
         AddressID = #{record.addressid,jdbcType=VARCHAR},
       </if>
-      <if test="record.saleclassid != null" >
+      <if test="record.saleclassid != null">
         SaleClassID = #{record.saleclassid,jdbcType=VARCHAR},
       </if>
-      <if test="record.priceoftax != null" >
+      <if test="record.priceoftax != null">
         PriceOfTax = #{record.priceoftax,jdbcType=INTEGER},
       </if>
-      <if test="record.wareid != null" >
+      <if test="record.wareid != null">
         WareID = #{record.wareid,jdbcType=INTEGER},
       </if>
-      <if test="record.voucherno != null" >
+      <if test="record.voucherno != null">
         VoucherNO = #{record.voucherno,jdbcType=VARCHAR},
       </if>
-      <if test="record.salesname != null" >
+      <if test="record.salesname != null">
         SalesName = #{record.salesname,jdbcType=VARCHAR},
       </if>
-      <if test="record.departid != null" >
+      <if test="record.departid != null">
         DepartID = #{record.departid,jdbcType=INTEGER},
       </if>
-      <if test="record.maker != null" >
+      <if test="record.maker != null">
         Maker = #{record.maker,jdbcType=VARCHAR},
       </if>
-      <if test="record.permitter != null" >
+      <if test="record.permitter != null">
         Permitter = #{record.permitter,jdbcType=VARCHAR},
       </if>
-      <if test="record.projectid != null" >
+      <if test="record.projectid != null">
         ProjectID = #{record.projectid,jdbcType=INTEGER},
       </if>
-      <if test="record.remark != null" >
+      <if test="record.remark != null">
         Remark = #{record.remark,jdbcType=VARCHAR},
       </if>
-      <if test="record.audit != null" >
+      <if test="record.audit != null">
         Audit = #{record.audit,jdbcType=INTEGER},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update tpurchasereceipt
     set BillNo = #{record.billno,jdbcType=VARCHAR},
       BillDate = #{record.billdate,jdbcType=DATE},
@@ -323,7 +323,333 @@
       ProjectID = #{record.projectid,jdbcType=INTEGER},
       Remark = #{record.remark,jdbcType=VARCHAR},
       Audit = #{record.audit,jdbcType=INTEGER}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.accp.domain.Tpurchasereceipt">
+    <result column="BillNo" jdbcType="VARCHAR" property="billno" />
+    <result column="BillDate" jdbcType="DATE" property="billdate" />
+    <result column="CurrID" jdbcType="INTEGER" property="currid" />
+    <result column="ExchRate" jdbcType="DOUBLE" property="exchrate" />
+    <result column="HasForeignTrade" jdbcType="VARCHAR" property="hasforeigntrade" />
+    <result column="CustID" jdbcType="INTEGER" property="custid" />
+    <result column="AddressID" jdbcType="VARCHAR" property="addressid" />
+    <result column="SaleClassID" jdbcType="VARCHAR" property="saleclassid" />
+    <result column="PriceOfTax" jdbcType="INTEGER" property="priceoftax" />
+    <result column="WareID" jdbcType="INTEGER" property="wareid" />
+    <result column="VoucherNO" jdbcType="VARCHAR" property="voucherno" />
+    <result column="SalesName" jdbcType="VARCHAR" property="salesname" />
+    <result column="DepartID" jdbcType="INTEGER" property="departid" />
+    <result column="Maker" jdbcType="VARCHAR" property="maker" />
+    <result column="Permitter" jdbcType="VARCHAR" property="permitter" />
+    <result column="ProjectID" jdbcType="INTEGER" property="projectid" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Audit" jdbcType="INTEGER" property="audit" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    BillNo, BillDate, CurrID, ExchRate, HasForeignTrade, CustID, AddressID, SaleClassID, 
+    PriceOfTax, WareID, VoucherNO, SalesName, DepartID, Maker, Permitter, ProjectID, 
+    Remark, Audit
+  </sql>
+  <select id="selectByExample" parameterType="com.accp.domain.TpurchasereceiptExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tpurchasereceipt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.accp.domain.TpurchasereceiptExample">
+    delete from tpurchasereceipt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Tpurchasereceipt">
+    insert into tpurchasereceipt (BillNo, BillDate, CurrID, 
+      ExchRate, HasForeignTrade, CustID, 
+      AddressID, SaleClassID, PriceOfTax, 
+      WareID, VoucherNO, SalesName, 
+      DepartID, Maker, Permitter, 
+      ProjectID, Remark, Audit
+      )
+    values (#{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=DATE}, #{currid,jdbcType=INTEGER}, 
+      #{exchrate,jdbcType=DOUBLE}, #{hasforeigntrade,jdbcType=VARCHAR}, #{custid,jdbcType=INTEGER}, 
+      #{addressid,jdbcType=VARCHAR}, #{saleclassid,jdbcType=VARCHAR}, #{priceoftax,jdbcType=INTEGER}, 
+      #{wareid,jdbcType=INTEGER}, #{voucherno,jdbcType=VARCHAR}, #{salesname,jdbcType=VARCHAR}, 
+      #{departid,jdbcType=INTEGER}, #{maker,jdbcType=VARCHAR}, #{permitter,jdbcType=VARCHAR}, 
+      #{projectid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{audit,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Tpurchasereceipt">
+    insert into tpurchasereceipt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billno != null">
+        BillNo,
+      </if>
+      <if test="billdate != null">
+        BillDate,
+      </if>
+      <if test="currid != null">
+        CurrID,
+      </if>
+      <if test="exchrate != null">
+        ExchRate,
+      </if>
+      <if test="hasforeigntrade != null">
+        HasForeignTrade,
+      </if>
+      <if test="custid != null">
+        CustID,
+      </if>
+      <if test="addressid != null">
+        AddressID,
+      </if>
+      <if test="saleclassid != null">
+        SaleClassID,
+      </if>
+      <if test="priceoftax != null">
+        PriceOfTax,
+      </if>
+      <if test="wareid != null">
+        WareID,
+      </if>
+      <if test="voucherno != null">
+        VoucherNO,
+      </if>
+      <if test="salesname != null">
+        SalesName,
+      </if>
+      <if test="departid != null">
+        DepartID,
+      </if>
+      <if test="maker != null">
+        Maker,
+      </if>
+      <if test="permitter != null">
+        Permitter,
+      </if>
+      <if test="projectid != null">
+        ProjectID,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="audit != null">
+        Audit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billno != null">
+        #{billno,jdbcType=VARCHAR},
+      </if>
+      <if test="billdate != null">
+        #{billdate,jdbcType=DATE},
+      </if>
+      <if test="currid != null">
+        #{currid,jdbcType=INTEGER},
+      </if>
+      <if test="exchrate != null">
+        #{exchrate,jdbcType=DOUBLE},
+      </if>
+      <if test="hasforeigntrade != null">
+        #{hasforeigntrade,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=INTEGER},
+      </if>
+      <if test="addressid != null">
+        #{addressid,jdbcType=VARCHAR},
+      </if>
+      <if test="saleclassid != null">
+        #{saleclassid,jdbcType=VARCHAR},
+      </if>
+      <if test="priceoftax != null">
+        #{priceoftax,jdbcType=INTEGER},
+      </if>
+      <if test="wareid != null">
+        #{wareid,jdbcType=INTEGER},
+      </if>
+      <if test="voucherno != null">
+        #{voucherno,jdbcType=VARCHAR},
+      </if>
+      <if test="salesname != null">
+        #{salesname,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null">
+        #{departid,jdbcType=INTEGER},
+      </if>
+      <if test="maker != null">
+        #{maker,jdbcType=VARCHAR},
+      </if>
+      <if test="permitter != null">
+        #{permitter,jdbcType=VARCHAR},
+      </if>
+      <if test="projectid != null">
+        #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="audit != null">
+        #{audit,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.TpurchasereceiptExample" resultType="java.lang.Integer">
+    select count(*) from tpurchasereceipt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tpurchasereceipt
+    <set>
+      <if test="record.billno != null">
+        BillNo = #{record.billno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billdate != null">
+        BillDate = #{record.billdate,jdbcType=DATE},
+      </if>
+      <if test="record.currid != null">
+        CurrID = #{record.currid,jdbcType=INTEGER},
+      </if>
+      <if test="record.exchrate != null">
+        ExchRate = #{record.exchrate,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hasforeigntrade != null">
+        HasForeignTrade = #{record.hasforeigntrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custid != null">
+        CustID = #{record.custid,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressid != null">
+        AddressID = #{record.addressid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saleclassid != null">
+        SaleClassID = #{record.saleclassid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priceoftax != null">
+        PriceOfTax = #{record.priceoftax,jdbcType=INTEGER},
+      </if>
+      <if test="record.wareid != null">
+        WareID = #{record.wareid,jdbcType=INTEGER},
+      </if>
+      <if test="record.voucherno != null">
+        VoucherNO = #{record.voucherno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesname != null">
+        SalesName = #{record.salesname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.departid != null">
+        DepartID = #{record.departid,jdbcType=INTEGER},
+      </if>
+      <if test="record.maker != null">
+        Maker = #{record.maker,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitter != null">
+        Permitter = #{record.permitter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectid != null">
+        ProjectID = #{record.projectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        Remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.audit != null">
+        Audit = #{record.audit,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tpurchasereceipt
+    set BillNo = #{record.billno,jdbcType=VARCHAR},
+      BillDate = #{record.billdate,jdbcType=DATE},
+      CurrID = #{record.currid,jdbcType=INTEGER},
+      ExchRate = #{record.exchrate,jdbcType=DOUBLE},
+      HasForeignTrade = #{record.hasforeigntrade,jdbcType=VARCHAR},
+      CustID = #{record.custid,jdbcType=INTEGER},
+      AddressID = #{record.addressid,jdbcType=VARCHAR},
+      SaleClassID = #{record.saleclassid,jdbcType=VARCHAR},
+      PriceOfTax = #{record.priceoftax,jdbcType=INTEGER},
+      WareID = #{record.wareid,jdbcType=INTEGER},
+      VoucherNO = #{record.voucherno,jdbcType=VARCHAR},
+      SalesName = #{record.salesname,jdbcType=VARCHAR},
+      DepartID = #{record.departid,jdbcType=INTEGER},
+      Maker = #{record.maker,jdbcType=VARCHAR},
+      Permitter = #{record.permitter,jdbcType=VARCHAR},
+      ProjectID = #{record.projectid,jdbcType=INTEGER},
+      Remark = #{record.remark,jdbcType=VARCHAR},
+      Audit = #{record.audit,jdbcType=INTEGER}
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>

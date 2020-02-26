@@ -1,8 +1,6 @@
-
 package com.accp.domain;
 
 import java.util.Date;
-import java.util.List;
 
 public class Tprepay {
     private String id;
@@ -46,58 +44,8 @@ public class Tprepay {
     private Integer auditstate;
 
     private Integer audit;
-    
-    private String sname;
-    
-    private Double money;
-    
-    private List<Tprepaydetail> prepaydetails;
-    
-    private String vouchingmanName;
-    
-    private String auditmanName;
 
-    public String getSname() {
-		return sname;
-	}
-
-	public void setSname(String sname) {
-		this.sname = sname;
-	}
-
-	public String getVouchingmanName() {
-		return vouchingmanName;
-	}
-
-	public void setVouchingmanName(String vouchingmanName) {
-		this.vouchingmanName = vouchingmanName;
-	}
-
-	public String getAuditmanName() {
-		return auditmanName;
-	}
-
-	public void setAuditmanName(String auditmanName) {
-		this.auditmanName = auditmanName;
-	}
-
-	public Double getMoney() {
-		return money;
-	}
-
-	public void setMoney(Double money) {
-		this.money = money;
-	}
-
-	public List<Tprepaydetail> getPrepaydetails() {
-		return prepaydetails;
-	}
-
-	public void setPrepaydetails(List<Tprepaydetail> prepaydetails) {
-		this.prepaydetails = prepaydetails;
-	}
-
-	public String getId() {
+    public String getId() {
         return id;
     }
 

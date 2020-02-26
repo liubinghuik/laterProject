@@ -10,7 +10,7 @@ public interface TmaterialcategoryMapper {
 
     int deleteByExample(TmaterialcategoryExample example);
 
-    int deleteByPrimaryKey(Integer classid);
+    int deleteByPrimaryKey(String classid);
 
     int insert(Tmaterialcategory record);
 
@@ -18,7 +18,7 @@ public interface TmaterialcategoryMapper {
 
     List<Tmaterialcategory> selectByExample(TmaterialcategoryExample example);
 
-    Tmaterialcategory selectByPrimaryKey(Integer classid);
+    Tmaterialcategory selectByPrimaryKey(String classid);
 
     int updateByExampleSelective(@Param("record") Tmaterialcategory record, @Param("example") TmaterialcategoryExample example);
 
