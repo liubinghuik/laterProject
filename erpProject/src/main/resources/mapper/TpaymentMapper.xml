@@ -24,6 +24,41 @@
     <result column="auditstate" property="auditstate" jdbcType="INTEGER" />
     <result column="audit" property="audit" jdbcType="INTEGER" />
   </resultMap>
+  <!-- 延伸映射 -->
+  <resultMap id="BaseResultMapExtends" type="com.accp.domain.Tpayment"
+  extends="BaseResultMap">
+   <result column="sname" property="sname"/>
+   <result column="money" property="money"/>
+  </resultMap>
+  <!-- 查询时间是否超出7天 -->
+  <select id="isOutTime" resultMap="BaseResultMap">
+  	SELECT * FROM `tpayment`
+WHERE `tpayment`.`id` = #{id}
+AND DATEDIFF(NOW(),`tpayment`.`date`) &lt;7
+  </select>
+  <!-- 查询付款列表 -->
+  <select id="showPayment" resultMap="BaseResultMapExtends">
+   SELECT `tpayment`.`id`,supplier.`fullName` sname,`tpayment`.`date`,`tpayment`.`auditstate`,SUM(`tpaymentdetail`.`chargeAgainst`) money
+FROM `tpayment`,`tpaymentdetail`,`supplier`
+WHERE tpayment.`id`=tpaymentdetail.`pid`
+AND tpayment.`sid`=supplier.`sid`
+AND tpayment.`auditstate` !=0
+AND `tpaymentdetail`.`state` !=0
+ <if test="id != '' and id != null">
+ AND tpayment.`id` LIKE CONCAT('%',#{id},'%')
+ </if>
+ <if test="sid != '' and sid != null">
+ AND supplier.`sid`= #{sid}
+ </if>
+ <if test="startseachtime != '' and startseachtime != null">
+  AND `tpayment`.`date` &gt;= #{startseachtime}
+ </if>
+ <if test="endseachtime != '' and endseachtime != null">
+  AND `tpayment`.`date` &lt;= #{endseachtime}
+ </if>
+ GROUP BY tpayment.`id`
+ ORDER BY id DESC
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

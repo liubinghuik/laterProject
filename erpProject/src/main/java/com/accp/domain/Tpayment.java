@@ -1,10 +1,16 @@
 package com.accp.domain;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Tpayment {
     private String id;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     private String sid;
@@ -20,7 +26,8 @@ public class Tpayment {
     private String currencyid;
 
     private Double discount;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date enddate;
 
     private Double exchangerate;
@@ -44,8 +51,79 @@ public class Tpayment {
     private Integer auditstate;
 
     private Integer audit;
+    
+    private String sname;
+    
+    private Double money;
+    
+    private String departName;
+    
+    private String auditmanName;
+    
+    private String vouchingmanName;
+    
+    private List<Tpaymentdetail> tpaymentdetails;
+    
+    private List<Tpaymentprepay> tpaymentprepays;
+    
+    
+    public List<Tpaymentprepay> getTpaymentprepays() {
+		return tpaymentprepays;
+	}
 
-    public String getId() {
+	public void setTpaymentprepays(List<Tpaymentprepay> tpaymentprepays) {
+		this.tpaymentprepays = tpaymentprepays;
+	}
+
+	public String getSname() {
+		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+
+	public Double getMoney() {
+		return money;
+	}
+
+	public void setMoney(Double money) {
+		this.money = money;
+	}
+
+	public String getDepartName() {
+		return departName;
+	}
+
+	public void setDepartName(String departName) {
+		this.departName = departName;
+	}
+
+	public String getAuditmanName() {
+		return auditmanName;
+	}
+
+	public void setAuditmanName(String auditmanName) {
+		this.auditmanName = auditmanName;
+	}
+
+	public String getVouchingmanName() {
+		return vouchingmanName;
+	}
+
+	public void setVouchingmanName(String vouchingmanName) {
+		this.vouchingmanName = vouchingmanName;
+	}
+
+	public List<Tpaymentdetail> getTpaymentdetails() {
+		return tpaymentdetails;
+	}
+
+	public void setTpaymentdetails(List<Tpaymentdetail> tpaymentdetails) {
+		this.tpaymentdetails = tpaymentdetails;
+	}
+
+	public String getId() {
         return id;
     }
 

@@ -2,6 +2,10 @@ package com.accp.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Employee {
     private String personid;
 
@@ -16,7 +20,8 @@ public class Employee {
     private Integer sex;
 
     private String idcard;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     private String duty;
@@ -24,11 +29,14 @@ public class Employee {
     private String postcode;
 
     private String phone;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date entrydate;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date regularizationdate;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dimissiondate;
 
     private String address;
@@ -44,8 +52,18 @@ public class Employee {
     private String custom3;
 
     private String custom4;
+    
+    private String departName;
 
-    public String getPersonid() {
+    public String getDepartName() {
+		return departName;
+	}
+
+	public void setDepartName(String departName) {
+		this.departName = departName;
+	}
+
+	public String getPersonid() {
         return personid;
     }
 

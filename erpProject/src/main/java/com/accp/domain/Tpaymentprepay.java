@@ -14,8 +14,28 @@ public class Tpaymentprepay {
     private Integer state;
 
     private Integer audit;
+    
+    private Double money;
+    
+    private Double balance;
 
-    public Integer getId() {
+    public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
+	public Double getMoney() {
+		return money;
+	}
+
+	public void setMoney(Double money) {
+		this.money = money;
+	}
+
+	public Integer getId() {
         return id;
     }
 

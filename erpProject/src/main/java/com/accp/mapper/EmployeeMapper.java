@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface EmployeeMapper {
+	List<Employee> showPerson(@Param("personID") String personID,@Param("name") String name,@Param("departID") String departID);
+	
     int countByExample(EmployeeExample example);
 
     int deleteByExample(EmployeeExample example);

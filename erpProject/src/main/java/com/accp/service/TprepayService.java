@@ -151,6 +151,9 @@ public class TprepayService {
 			tprepay.setAuditmanName(auditman.getName());			
 		}
 		tprepay.setVouchingman(vouchingman.getName());
+//		设置供应商名称
+		Supplier supplier=supplierMapper.selectByPrimaryKey(tprepay.getSid());
+		tprepay.setSname(supplier.getFullname());
 		return tprepay;
 	}
 	/**
@@ -163,6 +166,8 @@ public class TprepayService {
 		tprepay.setVouchingman(vouchingman);
 		Employee employee=employeeMapper.selectByPrimaryKey(vouchingman);
 		tprepay.setDepartid(employee.getDepartid());
+		tprepay.setAuditstate(1);
+		tprepay.setAudit(0);
 		i=tprepayMapper.insertSelective(tprepay);
 		List<Tprepaydetail> tprepaydetails=tprepay.getPrepaydetails();
 		if (tprepaydetails!=null&&tprepaydetails.size()>0) {

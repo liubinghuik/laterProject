@@ -2,6 +2,10 @@ package com.accp.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Tpaymentdetail {
     private Integer id;
 
@@ -10,7 +14,8 @@ public class Tpaymentdetail {
     private String sourcetype;
 
     private String sourceno;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date sourcedate;
 
     private String invoicenumber;
