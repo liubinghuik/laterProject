@@ -45,6 +45,39 @@
     <result column="coulumn2" property="coulumn2" jdbcType="VARCHAR" />
     <result column="coulumn3" property="coulumn3" jdbcType="VARCHAR" />
   </resultMap>
+  <!-- 延伸映射 -->
+  <resultMap id="BaseResultMapExtends" type="com.accp.domain.Supplier"
+  extends="BaseResultMap">
+   <result column="className" property="className"/>
+  </resultMap>
+  <!-- 查询供应商 -->
+  <select id="showSupplier" resultMap="BaseResultMapExtends">
+   SELECT supplier.`sid`,supplier.`fullName`,suppliercategory.`ClassName` FROM `supplier`,`suppliercategory`
+WHERE `supplier`.`classId`=`suppliercategory`.`ClassID`
+AND supplier.`coulumn3` =0
+ <if test="sid != '' and sid != null">
+ AND supplier.`sid` LIKE CONCAT('%',#{sid},'%')
+ </if>
+ <if test="fullName != '' and fullName != null">
+ AND supplier.`fullName` LIKE CONCAT('%',#{fullName},'%')
+ </if>
+ <if test="classId != '' and classId != null">
+ AND suppliercategory.`ClassID`= #{classId}
+ </if>
+  </select>
+  <!-- 查询供应商期末预付款 -->
+  <select id="getcurAdvRecvBySid" resultType="java.lang.Double" >
+    SELECT SUM(tprepaydetail.`balance`) FROM `tprepay`,`tprepaydetail`
+WHERE tprepay.`id`=tprepaydetail.`pid`
+AND tprepay.`audit`=0
+AND tprepay.`sid`=#{sid}
+  </select>
+  <!-- 查询供应商期末应付款 -->
+  <select id="getcurReceivableBySid" resultType="java.lang.Double" >
+    SELECT SUM(taccountpayable.`balance`) FROM taccountpayable
+WHERE taccountpayable.`state`=0
+AND taccountpayable.`sid`=#{sid}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

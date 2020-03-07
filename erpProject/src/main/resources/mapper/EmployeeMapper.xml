@@ -24,6 +24,27 @@
     <result column="custom3" property="custom3" jdbcType="VARCHAR" />
     <result column="custom4" property="custom4" jdbcType="VARCHAR" />
   </resultMap>
+  <!-- 延伸映射 -->
+  <resultMap id="BaseResultMapExtends" type="com.accp.domain.Employee"
+  extends="BaseResultMap">
+   <result column="departName" property="departName"/>
+  </resultMap>
+  <!-- 查询人员列表 -->
+  <select id="showPerson" resultMap="BaseResultMapExtends">
+  	select `personID`,`name`,`DepartName` from `employee`,`department`
+	where `employee`.`departID`=`department`.`DepartID`
+	and `employee`.`state`=0
+	<if test="personID != '' and personID != null">
+		and `personID` like CONCAT('%',#{personID},'%')
+	</if>
+	<if test="name != '' and name != null">
+		and `name` like CONCAT('%',#{name},'%')
+	</if>
+	<if test="departID != '' and departID != null">
+		and department.`DepartID` = #{departID}	
+	</if>
+	order by `personID`
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

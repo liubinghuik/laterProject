@@ -3,91 +3,143 @@ package com.accp.domain;
 import java.util.Date;
 
 public class Supplier {
+	//编号
     private String sid;
-
+    //全称
     private String fullname;
-
+    //简称
     private String shortname;
-
+    //英文全称
     private String engfullname;
-
+    //英文简称
     private String engshortname;
-
+    //账款归属
     private String fundsattribution;
-
+    //类别
     private String classid;
-
+    //地区
     private String area;
-
+    //币别
     private String currencyid;
-
+    //负责人
     private String chiefname;
-
+    //联系人
     private String linkman;
-
+    //采购人员
     private String personid;
-
+    //税务登记号
     private String taxno;
-
+    //资本额
     private Double capitalization;
-
+    //行业别
     private String industrialclass;
-
+    //邮箱
     private String email;
-
+    //网站
     private String webaddress;
-
+    //传真号码
     private String faxno;
-
+    //联系电话1
     private String telephone1;
-
+    //联系电话2
     private String telephone2;
-
+    //联系电话3
     private String telephone3;
-
+    //移动电话
     private String mobilephone;
-
+    //银行账号
     private String bankaccount;
-
+    //开户银行
     private String bank;
-
+    //单价是否含税
     private Integer priceoftax;
-
+    //终止交易日
     private Integer invaliddate;
-
+    //最初采购入库日
     private Date earliesttradedate;
-
+    //最初采购退货日
     private Date firsttradedate;
-
+    //最近采购日
     private Date latelytradedate;
-
+    //最近退货日
     private Date latelyreturn;
-
+    //期初预付
     private Double startadvrecv;
-
+    //期初应付
     private Double startreceivable;
-
+    //账款额度
     private Double amountquota;
-
+    //付款条件
     private Integer recvway;
-
+    //付款天数
     private Integer distdays;
-
+    //每月结账日
     private Integer dayofclose;
-
+    //月结付款日
     private Integer dayofrecv;
-
+    //信用等级
     private String creditlevel;
-
+    //备注
     private String memao;
-
+    //自定义1
     private String coulumn1;
-
+    //自定义2
     private String coulumn2;
-
+    //状态0正常1删除
     private String coulumn3;
+    //查询数据
+    //期末预付款
+    private Double curAdvRecv;
+    //期末应付款
+    private Double curReceivable;
+    //地址
+    private Supplieraddress supplieraddress;
+    //类别名称
+    private String className;
+    //采购人员名称
+    private String personName;
+    
+    public Double getCurAdvRecv() {
+		return curAdvRecv;
+	}
 
-    public String getSid() {
+	public void setCurAdvRecv(Double curAdvRecv) {
+		this.curAdvRecv = curAdvRecv;
+	}
+
+	public Double getCurReceivable() {
+		return curReceivable;
+	}
+
+	public void setCurReceivable(Double curReceivable) {
+		this.curReceivable = curReceivable;
+	}
+
+	public Supplieraddress getSupplieraddress() {
+		return supplieraddress;
+	}
+
+	public void setSupplieraddress(Supplieraddress supplieraddress) {
+		this.supplieraddress = supplieraddress;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public String getPersonName() {
+		return personName;
+	}
+
+	public void setPersonName(String personName) {
+		this.personName = personName;
+	}
+
+	public String getSid() {
         return sid;
     }
 
